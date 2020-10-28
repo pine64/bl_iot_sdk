@@ -48,7 +48,7 @@ int wifi_mgmr_profile_add(wifi_mgmr_t *mgmr, wifi_mgmr_profile_msg_t *profile_ms
         for (i = 0; i < sizeof(mgmr->profiles)/sizeof(mgmr->profiles[0]); i++) {
             if (0 == mgmr->profiles[i].isUsed) {
                 profile = &(mgmr->profiles[i]);
-                
+
                 mgmr->profile_active_index = i;
                 os_printf("[WF][PF] Using free profile, idx is @%d\r\n", i);
                 break;
@@ -65,10 +65,10 @@ int wifi_mgmr_profile_add(wifi_mgmr_t *mgmr, wifi_mgmr_profile_msg_t *profile_ms
     profile->psk_len = profile_msg->psk_len;
     profile->pmk_len = profile_msg->pmk_len;
     profile->priority = 255;
-    memcpy(profile->ssid, profile_msg->ssid, sizeof(profile->ssid));
-    memcpy(profile->psk, profile_msg->psk, sizeof(profile->psk));
-    memcpy(profile->pmk, profile_msg->pmk, sizeof(profile->pmk));
-    memcpy(profile->mac, profile_msg->mac, sizeof(profile->mac));
+    memcpy(profile->ssid, profile_msg->ssid, sizeof(profile_msg->ssid));
+    memcpy(profile->psk, profile_msg->psk, sizeof(profile_msg->psk));
+    memcpy(profile->pmk, profile_msg->pmk, sizeof(profile_msg->pmk));
+    memcpy(profile->mac, profile_msg->mac, sizeof(profile_msg->mac));
     profile->dhcp_use = profile_msg->dhcp_use;
 
     return 0;
@@ -122,10 +122,10 @@ int wifi_mgmr_profile_get(wifi_mgmr_t *mgmr, wifi_mgmr_profile_msg_t *profile_ms
     profile_msg->psk_len = profile->psk_len;
     profile_msg->pmk_len = profile->pmk_len;
     profile_msg->dhcp_use = profile->dhcp_use;
-    memcpy(profile_msg->ssid, profile->ssid, sizeof(profile->ssid));
-    memcpy(profile_msg->psk, profile->psk, sizeof(profile->psk));
-    memcpy(profile_msg->pmk, profile->pmk, sizeof(profile->pmk));
-    memcpy(profile_msg->mac, profile->mac, sizeof(profile->mac));
+    memcpy(profile_msg->ssid, profile->ssid, sizeof(profile_msg->ssid));
+    memcpy(profile_msg->psk, profile->psk, sizeof(profile_msg->psk));
+    memcpy(profile_msg->pmk, profile->pmk, sizeof(profile_msg->pmk));
+    memcpy(profile_msg->mac, profile->mac, sizeof(profile_msg->mac));
 
     return 0;
 }
@@ -149,7 +149,7 @@ int wifi_mgmr_profile_autoreconnect_is_enabled(wifi_mgmr_t *mgmr, int index)
 {
 #if 0
     wifi_mgmr_profile_t *profile;
-    
+
     profile = __lookup_profile(mgmr, index);
     if (NULL == profile) {
         return -1;

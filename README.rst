@@ -19,20 +19,29 @@ Comparison with ESP8266
 |                   | Bouffalo Lab BL602          | Espressif ESP8266                |
 +===================+=============================+==================================+
 | Architecture      | 32-bit RISC-V               | 32-bit Xtensa                    |
+|                   |                             |                                  |
 |                   | @192MHz (dynamic @1-192MHz) | @80MHz (and 160MHz)              |
+|                   |                             |                                  |
 |                   | L1 cache                    |                                  |
+|                   |                             |                                  |
 |                   | FPU                         |                                  |
 +-------------------+-----------------------------+----------------------------------+
 | Memory            | 276KB SRAM                  | 32 KiB instruction RAM           |
+|                   |                             |                                  |
 |                   | 128KB ROM                   | 32 KiB instruction cache RAM     |
+|                   |                             |                                  |
 |                   | 1 Kb eFuse                  | 80 KiB user-data RAM             |
+|                   |                             |                                  |
 |                   | optional embdedded flash    | 16 KiB ETS system-data RAM       |
 |                   |                             |                                  |
+|                   |                             |                                  |
 |                   | XIP QSPI flash support      | No programmable ROM              |
+|                   |                             |                                  |
 |                   |                             | QSPI flash support               |
 |                   |                             | (up to 16 MB)                    |
 +-------------------+-----------------------------+----------------------------------+
 | Wi-Fi             | 802.11 b/g/n @2.4GHz        | 802.11 b/g/n @2.4GHz             |
+|                   |                             |                                  |
 |                   | WPS/WEP/WPA/WPA2/WPA3       | WEP/WPA/WPA2                     |
 +-------------------+-----------------------------+----------------------------------+
 | Bluetooth         | LE 5.0                      | NONE                             |
@@ -61,7 +70,9 @@ Comparison with ESP8266
 | DMA               | x4                          | with I2S                         |
 +-------------------+-----------------------------+----------------------------------+
 | Timer             | RTC (up to 1 year)          | x1 hardware                      |
+|                   |                             |                                  |
 |                   | x2 32-bit general-purpose   | x1 software                      |
+|                   |                             |                                  |
 |                   |                             | (no interrupt gen. on sw. timer) |
 +-------------------+-----------------------------+----------------------------------+
 | IR Remote Control | x1                          | x1                               |

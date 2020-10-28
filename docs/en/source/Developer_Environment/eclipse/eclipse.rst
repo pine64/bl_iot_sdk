@@ -1,23 +1,23 @@
 Eclipse
 =======
 
-本文档介绍Eclipse的使用。
+This document describes the use of Eclipse.
 
-导入工程
+Import project
 --------
 
--  首先启动 ``eclipse`` ，打开工具栏上的\ ``File > import``\ ，选择\ ``General``\ 菜单下的\ ``Existing Projects into Workspace``\ 选项导入工程。
+- First start ``eclipse``, open ``File> import`` on the toolbar, and select ``Existing Projects into Workspace`` under the ``General`` menu to import the project.
 
 .. figure:: imgs/image01.png
-   :alt: 
+   :alt:
 
 .. figure:: imgs/image02.png
-   :alt: 
+   :alt:
 
 Debug
 -----
 
--  首先让板子跑起来，确认eclipse左上方的工具栏配置如下图1所示，然后点击第一个红色框框起来的图标\ ``debug``\ 按钮，eclipse会先编译工程，完成后eclipse下方的 ``Console`` 窗口可以看到如下图2所示log。
+- First let the board run, confirm the configuration of the toolbar at the top left of eclipse as shown in Figure 1, and then click the icon ``debug`` button in the first red frame, eclipse will compile the project first, and then under eclipse In the ``Console`` window, you can see the log as shown in Figure 2 below.
 
 .. figure:: imgs/image03.png
    :alt:
@@ -25,13 +25,13 @@ Debug
 .. figure:: imgs/image04.png
    :alt:
 
--  使用快捷键 ``F8`` resume一下，可以看到程序停在 ``void bfl_main()`` 主函数处，此时可以点击下图中的3个按钮。其含义分别为
+- Use the shortcut key ``F8`` to resume, you can see that the program stops at the ``void bfl_main()`` main function. At this time, you can click the 3 buttons in the figure below. The meanings are
 
-   -  第一个Step Into（F5） 单步执行，遇到子函数就进入并且继续单步执行；
+- The first Step Into (F5) is executed in a single step, enters and continues to execute in a single step when encountering a sub-function;
 
-   -  第二个Step Over （F6）在单步执行时，在函数内遇到子函数时不会进入子函数内单步执行，而是将子函数整个执行完在停止，也就是把子函数整个作为一步；
+- When the second Step Over (F6) is in single step execution, when it encounters a sub-function in the function, it will not enter the sub-function for single-step execution. Instead, the sub-function will be executed and stopped, that is, the entire sub-function will be executed. As a step
 
-   -  第三个Step Return（F7）在单步执行到子函数内时，用Step Return就可以执行完子函数余下部分，并返回上一层函数。
+- When the third Step Return (F7) is stepped into the sub-function, you can use Step Return to execute the remaining part of the sub-function and return to the previous function.
 
 .. figure:: imgs/image05.png
    :alt:
@@ -39,12 +39,12 @@ Debug
 .. figure:: imgs/image06.png
    :alt:
 
--  可以在 ``c代码`` 窗口最左边橙色条处双击增加、删除断点。
+- You can add or delete breakpoints by double-clicking on the orange bar at the far left of the ``c code`` window.
 
 .. figure:: imgs/image08.png
    :alt:
 
--  还可以通过查看右边的 ``Disassembly`` 窗口查看对应的汇编（该窗口没有的话可以通过最上方工具栏 ``Window > show view > Disassembly`` 添加）。
+- You can also view the corresponding assembly by viewing the ``Disassembly`` window on the right (if the window is not available, you can add it through the top toolbar ``Window> show view> Disassembly``).
 
 .. figure:: imgs/image07.png
    :alt:

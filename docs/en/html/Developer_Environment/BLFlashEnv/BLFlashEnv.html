@@ -1,0 +1,502 @@
+<html class="writer-html5 translated-ltr" lang="en" style="height: 100%;"><head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. BLFlashEnv — BL602 IoT SDK release_bl_iot_sdk_1.6.11-1-g66bb28da 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css">
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="index" href="../../genindex.html">
+    <link rel="search" title="search for" href="../../search.html">
+    <link rel="next" title="3. Freedom Studio" href="../freedom_studio/freedom_studio.html">
+    <link rel="prev" title="1. Developer Environment" href="../Developer_Environment.html"> 
+<script>(function(){(function injection() {
+  var pageLang = 'zh-CN';
+  var userLang = 'en';
+
+  var uid = '1E07F158C6FA4460B352973E9693B329';
+  var teId = 'TE_' + uid;
+  var cbId = 'TECB_' + uid;
+
+  function show() {
+    window.setTimeout(function() {
+      window[teId].showBanner(true);
+    }, 10);
+  }
+
+  function newElem() {
+    var elem = new google.translate.TranslateElement({
+      autoDisplay: false,
+      floatPosition: 0,
+      multilanguagePage: true,
+      pageLanguage: pageLang
+    });
+    return elem;
+  }
+
+  if (window[teId]) {
+    show();
+  } else {
+    if (!window.google || !google.translate ||
+        !google.translate.TranslateElement) {
+      if (!window[cbId]) {
+        window[cbId] = function() {
+          window[teId] = newElem();
+          show();
+        };
+      }
+      var s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=' +
+              encodeURIComponent(cbId) + '&client=tee&hl=' + userLang;
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  }
+})();})();</script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/element/TE_20200506_00/e/js/element/element_main.js"></script></head>
+
+<body class="wy-body-for-nav" style="position: relative; min-height: 100%; top: 40px;">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> BL602 IoT SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                release_bl_iot_sdk_1.6.11-1-g66bb28da
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search in the document">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer_Environment</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Developer_Environment.html">1. Developer Environment</a></li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#"><span class="toctree-expand"></span>2. BLFlashEnv</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dev-cube"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.1. Introduction to Dev Cube</font></font></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.2. Mirror composition</font></font></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mcu"><span class="toctree-expand"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3. MCU program download</font></font></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.1. Configuration program download method</font></font></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.2. Configure mirroring parameters</font></font></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.3. Configure advanced mirroring parameters</font></font></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.4. Download the program</font></font></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#iot"><span class="toctree-expand"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4. IOT program download</font></font></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4.1. Configure program download method</font></font></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4.2. Configure download parameters</font></font></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4.3. Download the program</font></font></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../freedom_studio/freedom_studio.html">3. Freedom Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../eclipse/eclipse.html">4. Eclipse</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/helloworld/helloworld.html">1. Helloword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_aws/aws.html">2. aws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_peripherals_gpio/GPIO.html">3. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_peripherals_uart_echo/uart_echo.html">4. UART_echo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_peripherals_uart_ioctl/uart_ioctl.html">5. UART_ioctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_protocols_http/http.html">6. Http client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_protocols_httpc/httpc.html">7. Httpc client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_storage_psm/psm.html">8. PSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_storage_romfs/romfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9. Romfs</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_system_cli/cli.html">10. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_system_fdt/fdt.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11. FDT</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_wifi/wifi.html">12. WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_ble/ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">13. BLE</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_mesh/mesh.html">14. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_blsync_ble/blsync_ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15. BLSYNC-BLE</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/sdk_app_easyflash_boottimes/easyflash_boottimes.html">16. Easyflash4 boot times</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/arch.html">1. arch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Command_line/helper.html">2. helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Command_line/aos_cli.html">3. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Hal_drv/gpio.html">4. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/bloop/bloop.html">5. BLOOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/blsync/blsync.html">6. BLSYNC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/dts/devicetree.html">7. device tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/log/blog.html">8. blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/security/security.html">9. Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/vfs/vfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10. TO VFS</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/yloop/yloop.html">11. yloop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/httpc/httpc.html">12. HTTPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/https/https.html">13. HTTPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/tls/tls.html">14. TLS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/provision_WiFi/provision_WiFi.html">15. Provision_WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/mesh/mesh.html">16. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/ble_stack/ble_stack.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17. BLE</font></font></a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API/sys/cronalarms.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. cronalarms</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API/wifi/wifi_mgmr.html">2. Wi-Fi Manager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BL602 IoT SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> »</li>
+        
+      <li><span class="section-number">2. </span>BLFlashEnv</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Developer_Environment/BLFlashEnv/BLFlashEnv.rst.txt" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> View page source code</font></font></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="blflashenv">
+<h1><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2. </font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BLFlashEnv</font></font><a class="headerlink" href="#blflashenv" title="Permalink to title">¶</a></h1>
+<div class="section" id="dev-cube">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Introduction to Dev Cube</font></font><a class="headerlink" href="#dev-cube" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dev Cube is a chip integrated development tool provided by Boliu, including three functions: IOT program download, MCU program download and RF performance test. </font><font class="" style="vertical-align: inherit;">This document mainly introduces the related configuration of IOT and MCU program download. For RF performance test, please refer to "Radio Frequency Performance Test User Manual".</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dev Cube provides users with the function of downloading programs, and supports the configuration of parameters such as clock and flash. Users can decide whether to encrypt the program, add signatures, and replace the information file, user resource file, partition table and other functional configurations when the program is started according to their own needs. .</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The specific functions are as follows:</font></font></p>
+<ol class="arabic simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Support downloading of IOT application and MCU application</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Supports erasing, writing and reading of various types of Flash;</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Various files can be downloaded to Flash, verified and read back;</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The download communication interface supports UART and JLink two ways.</font></font></p></li>
+</ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Users can </font><font style="vertical-align: inherit;">get the latest version of Dev Cube </font><font style="vertical-align: inherit;">through </font></font><a class="reference external" href="https://dev.bouffalolab.com/download"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bouffalo Lab</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Dev Cube. </font><font style="vertical-align: inherit;">Double-click in the decompressed folder, </font><font style="vertical-align: inherit;">select the corresponding chip model </font></font><code class="docutils literal notranslate"><span class="pre">BLDevCube.exe</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">in the </font><font style="vertical-align: inherit;">dialog box, and click to </font><font style="vertical-align: inherit;">enter the Dev Cube main interface.</font></font><code class="docutils literal notranslate"><span class="pre">Chip</span> <span class="pre">Selection</span></code><font style="vertical-align: inherit;"></font><code class="docutils literal notranslate"><span class="pre">Finish</span></code><font style="vertical-align: inherit;"></font></p>
+<div class="figure align-center" id="id9">
+<img alt="../../_images/chipselection.png" src="../../_images/chipselection.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chip selection</font></font></span><a class="headerlink" href="#id9" title="Permanent link to picture">¶</a></p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Mirror composition</font></font><a class="headerlink" href="#id1" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Regardless of whether it is IOT program download or MCU program download, their image composition is the same, as shown in the following figure:</font></font></p>
+<div class="figure align-center" id="id10">
+<img alt="../../_images/tool2.png" src="../../_images/tool2.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Download content layout</font></font></span><a class="headerlink" href="#id10" title="Permanent link to picture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></p>
+</div>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If only downloading the application program cannot make the chip work normally, the boot information must be downloaded to the specified location. </font><font style="vertical-align: inherit;">The boot information includes the configuration of PLL, Boot, Flash, etc.; the firmware is an application program written by the user.</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Take single-core download as an example: select the corresponding parameters according to the needs, burn the configuration information of PLL, Flash, etc. to the address corresponding to Bootinfo Addr, and burn the compiled bin file of the application to the address corresponding to Image Addr in.</font></font></p>
+</div>
+<div class="section" id="mcu">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> MCU program download</font></font><a class="headerlink" href="#mcu" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<p><font style="vertical-align: inherit;"></font><code class="docutils literal notranslate"><span class="pre">View</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Select the MCU option </font><font style="vertical-align: inherit;">in the </font><font style="vertical-align: inherit;">menu to enter the MCU program download interface, which is mainly divided into the configuration of program download mode, the configuration of mirroring parameters and the configuration of advanced mirroring parameters.</font></font></p>
+<div class="section" id="id2">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Configuration program download method</font></font><a class="headerlink" href="#id2" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configuration parameters include:</font></font></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Interface: used to select the communication interface for burning, here select Uart to download</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">COM Port: When selecting UART to download, select the COM port number connected to the chip, you can click the Refresh button to refresh the COM number</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Uart Speed: When selecting UART to download, fill in the baud rate, the recommended download frequency is 2MHz, not too high</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chip Erase: The default setting is False, that is, the Flash is not erased when downloading</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xtal: Used to select the type of crystal used on the board.</font></font></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="figure align-center" id="id11">
+<img alt="../../_images/tool5.png" src="../../_images/tool5.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MCU program download method selection interface</font></font></span><a class="headerlink" href="#id11" title="Permanent link to picture">¶</a></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Configure mirroring parameters</font></font><a class="headerlink" href="#id3" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configuration parameters include:</font></font></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Boot Source: The default is Flash</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">BootInfo Addr: the storage address of the startup parameters of the Flash program, fill in 0x0</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Image Type: The default is SingleCPU</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Image Addr: The storage address of the application, it is recommended to fill in the address 0x2000 or after 0x2000</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Image File: Add the path of the bin file generated by the compilation to the Image File</font></font></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="figure align-center" id="id12">
+<img alt="../../_images/tool9.png" src="../../_images/tool9.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mirror parameter selection interface</font></font></span><a class="headerlink" href="#id12" title="Permanent link to picture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.3.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Configure advanced mirroring parameters</font></font><a class="headerlink" href="#id4" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When clicked </font><font style="vertical-align: inherit;">, the advanced mirror configuration will be expanded, and the configurable parameters include:</font></font><code class="docutils literal notranslate"><span class="pre">click</span> <span class="pre">here</span> <span class="pre">to</span> <span class="pre">show</span> <span class="pre">advanced</span> <span class="pre">options</span></code><font style="vertical-align: inherit;"></font></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Flash Clock: XTAL by default</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PLL: PLL clock configuration, the default is 160M</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CacheWayDis: The buffer channel is disabled, the default is none</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sign: Choose whether to require ECC verification, the default is none</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CrcIgnore: Whether CRC check is required. </font><font style="vertical-align: inherit;">CRC check is required when the parameter is False; CRC check is not required when the parameter is True</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">HashIgnore: Whether Hash verification is required. </font><font style="vertical-align: inherit;">Hash verification is required when the parameter is False; Hash verification is not required when the parameter is True</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Encrypt: Select the encryption method, and enter the corresponding values ​​in AES Key and AES IV according to the AES encryption method.</font></font></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="figure align-center" id="id13">
+<img alt="../../_images/tool10.png" src="../../_images/tool10.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Advanced mirroring parameter selection interface</font></font></span><a class="headerlink" href="#id13" title="Permanent link to picture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></p>
+</div>
+</div>
+<div class="section" id="id5">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.3.4.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Download the program</font></font><a class="headerlink" href="#id5" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Keep the BOOT pin of the board high, and reset the chip to make it in the state of UART boot download. </font><font style="vertical-align: inherit;">Click </font></font><code class="docutils literal notranslate"><span class="pre">Creat&amp;Program</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">, the application image and startup parameter configuration file will be automatically generated, the following log message appears, and the program download is successful</font></font></p></li>
+</ul>
+<div class="figure align-center" id="id14">
+<img alt="../../_images/tool6.png" src="../../_images/tool6.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Download program</font></font></span><a class="headerlink" href="#id14" title="Permanent link to picture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">annotation</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If the board is not connected, just generate the application image and startup parameter configuration file, and click the </font></font><code class="docutils literal notranslate"><span class="pre">Creat&amp;Program</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">button</font></font></p>
+</div>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After the download is successful, keep the BOOT pin of the board low and reset the chip to start it from Flash. </font><font style="vertical-align: inherit;">This example sends a string message to the PC at a baud rate of 2M</font></font></p></li>
+</ul>
+<div class="figure align-center" id="id15">
+<img alt="../../_images/tool7.png" src="../../_images/tool7.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">log information</font></font></span><a class="headerlink" href="#id15" title="Permanent link to picture">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="iot">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> IOT program download</font></font><a class="headerlink" href="#iot" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<p><font style="vertical-align: inherit;"></font><code class="docutils literal notranslate"><span class="pre">View</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Select the IOT option </font><font style="vertical-align: inherit;">in the </font><font style="vertical-align: inherit;">menu to enter the IOT program download interface, which is mainly divided into the configuration of the program download mode and the configuration of the download parameters.</font></font></p>
+<div class="section" id="id6">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Configuration program download method</font></font><a class="headerlink" href="#id6" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configuration parameters include:</font></font></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Interface: used to select the communication interface for burning, here select Uart to download</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">COM Port: When selecting UART for download, select the COM port number connected to the chip, and you can click the Refresh button to refresh the COM number</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Uart Rate: When selecting UART to download, fill in the baud rate, the recommended download frequency is 2MHz, not too high</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Board: Choose the board model you are using, here choose IoTKitA, when the board is selected, Xtal will automatically update to the default value that matches the board, of course the user can also change it again</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xtal: Select the crystal oscillator frequency when downloading. If the circuit board does not have a soldered crystal oscillator, the internal RC32M clock source should be selected here</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chip Erase is set to False by default, that is, Flash is not erased when downloading</font></font></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="figure align-center" id="id16">
+<img alt="../../_images/iot1.png" src="../../_images/iot1.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IOT program download method selection interface</font></font></span><a class="headerlink" href="#id16" title="Permanent link to picture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Configure download parameters</font></font><a class="headerlink" href="#id7" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configuration parameters include:</font></font></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Partition Table: Use the partition table in the partition folder of the corresponding chip model in the Dev Cube directory, and 2M files are selected by default</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Boot2 Bin: It is the first Flash program that runs after the system starts. It is responsible for establishing the BLSP security environment and guiding the main program to run. It uses the Boot2 file in the builtin_imgs folder of the corresponding chip model in the Dev Cube directory</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Firmware Bin: Bin file path generated by user compilation</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Media/Romfs: Choose one of Media and Romfs. If you check Media, the file is selected. If you check Romfs, the file is selected.</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">MFG Bin: Select MFG file</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AES-Encrypt: If you use the encryption function, you need to select the AES-Encrypt option, and enter the Key and IV used for encryption in the text box next to it. </font><font style="vertical-align: inherit;">The input is "0"~"F" corresponding to hexadecimal, and a Byte is composed of two characters, so Key and IV require 32 characters to be input respectively. </font><font style="vertical-align: inherit;">It should be noted that the last 8 characters of IV (ie 4Bytes) must be all 0</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Single Download Config: After checking Enable, you can download a single file. Fill in the starting address of the download in the left text box, starting with 0x</font></font></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<div class="figure align-center" id="id17">
+<img alt="../../_images/iot2.png" src="../../_images/iot2.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Download parameter selection interface</font></font></span><a class="headerlink" href="#id17" title="Permanent link to picture">¶</a></p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.4.3.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Download the program</font></font><a class="headerlink" href="#id8" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Keep the BOOT pin of the board high, and reset the chip to make it in the state of UART boot download. </font><font style="vertical-align: inherit;">Click </font></font><code class="docutils literal notranslate"><span class="pre">Creat&amp;Download</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">, the application image and startup parameter configuration file will be automatically generated, the following log message appears, and the program download is successful</font></font></p></li>
+</ul>
+<div class="figure align-center" id="id18">
+<img alt="../../_images/iot3.png" src="../../_images/iot3.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">IOT downloader</font></font></span><a class="headerlink" href="#id18" title="Permanent link to picture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">annotation</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If the board is not connected, just generate the application image and startup parameter configuration file, and click the </font></font><code class="docutils literal notranslate"><span class="pre">Creat&amp;Program</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">button</font></font></p>
+</div>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After the download is successful, keep the BOOT pin of the board low and reset the chip to start it from Flash. </font><font style="vertical-align: inherit;">This example sends a string message to the PC at a baud rate of 2M</font></font></p></li>
+</ul>
+<div class="figure align-center" id="id19">
+<img alt="../../_images/tool7.png" src="../../_images/tool7.png">
+<p class="caption"><span class="caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">log information</font></font></span><a class="headerlink" href="#id19" title="Permanent link to picture"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../freedom_studio/freedom_studio.html" class="btn btn-neutral float-right" title="3. Freedom Studio" accesskey="n" rel="next"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Next page </font></font><span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Developer_Environment.html" class="btn btn-neutral float-left" title="1. Developer Environment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Previous page</font></font></a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        
+        © Copyright 2020, Bouffalo Lab
+
+    </font></font></p>
+  </div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    
+    
+    
+    Use </font></font><a href="http://sphinx-doc.org/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sphinx</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> constructed, using the 
+    
+     </font></font><a href="https://github.com/rtfd/sphinx_rtd_theme"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">theme</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+    
+    of </font></font><a href="https://readthedocs.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Read the Docs</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> development. 
+
+</font></font></footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+
+</body></html>

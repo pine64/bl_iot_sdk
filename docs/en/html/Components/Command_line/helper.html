@@ -1,0 +1,592 @@
+<html class="writer-html5 translated-ltr" lang="en" style="height: 100%;"><head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. helper — BL602 IoT SDK release_bl_iot_sdk_1.6.11-1-g66bb28da 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css">
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="index" href="../../genindex.html">
+    <link rel="search" title="search for" href="../../search.html">
+    <link rel="next" title="3. cli" href="aos_cli.html">
+    <link rel="prev" title="1. arch" href="../arch.html"> 
+<script>(function(){(function injection() {
+  var pageLang = 'auto';
+  var userLang = 'en';
+
+  var uid = '1E07F158C6FA4460B352973E9693B329';
+  var teId = 'TE_' + uid;
+  var cbId = 'TECB_' + uid;
+
+  function show() {
+    window.setTimeout(function() {
+      window[teId].showBanner(true);
+    }, 10);
+  }
+
+  function newElem() {
+    var elem = new google.translate.TranslateElement({
+      autoDisplay: false,
+      floatPosition: 0,
+      multilanguagePage: true,
+      pageLanguage: pageLang
+    });
+    return elem;
+  }
+
+  if (window[teId]) {
+    show();
+  } else {
+    if (!window.google || !google.translate ||
+        !google.translate.TranslateElement) {
+      if (!window[cbId]) {
+        window[cbId] = function() {
+          window[teId] = newElem();
+          show();
+        };
+      }
+      var s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=' +
+              encodeURIComponent(cbId) + '&client=tee&hl=' + userLang;
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  }
+})();})();</script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/element/TE_20200506_00/e/js/element/element_main.js"></script></head>
+
+<body class="wy-body-for-nav" style="position: relative; min-height: 100%; top: 40px;">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> BL602 IoT SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                release_bl_iot_sdk_1.6.11-1-g66bb28da
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search in the document">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer_Environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/Developer_Environment.html">1. Developer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/BLFlashEnv/BLFlashEnv.html">2. BLFlashEnv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/freedom_studio/freedom_studio.html">3. Freedom Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/eclipse/eclipse.html">4. Eclipse</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/helloworld/helloworld.html">1. Helloword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_aws/aws.html">2. aws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_peripherals_gpio/GPIO.html">3. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_peripherals_uart_echo/uart_echo.html">4. UART_echo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_peripherals_uart_ioctl/uart_ioctl.html">5. UART_ioctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_protocols_http/http.html">6. Http client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_protocols_httpc/httpc.html">7. Httpc client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_storage_psm/psm.html">8. PSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_storage_romfs/romfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9. Romfs</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_system_cli/cli.html">10. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_system_fdt/fdt.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11. FDT</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_wifi/wifi.html">12. WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_ble/ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">13. BLE</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_mesh/mesh.html">14. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/demo_blsync_ble/blsync_ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15. BLSYNC-BLE</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Examples/sdk_app_easyflash_boottimes/easyflash_boottimes.html">16. Easyflash4 boot times</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Components</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../arch.html">1. arch</a></li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#"><span class="toctree-expand"></span>2. helper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cli"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.1. cli command table</font></font></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.2. Common commands</font></font></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aos_cli.html">3. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Hal_drv/gpio.html">4. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Middleware/bloop/bloop.html">5. BLOOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Middleware/blsync/blsync.html">6. BLSYNC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Middleware/dts/devicetree.html">7. device tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Middleware/log/blog.html">8. blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Middleware/security/security.html">9. Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Middleware/vfs/vfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10. TO VFS</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Middleware/yloop/yloop.html">11. yloop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Network/httpc/httpc.html">12. HTTPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Network/https/https.html">13. HTTPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Network/tls/tls.html">14. TLS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BLE/provision_WiFi/provision_WiFi.html">15. Provision_WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BLE/mesh/mesh.html">16. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../BLE/ble_stack/ble_stack.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17. BLE</font></font></a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API/sys/cronalarms.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. cronalarms</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API/wifi/wifi_mgmr.html">2. Wi-Fi Manager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BL602 IoT SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> »</li>
+        
+      <li><span class="section-number">2. </span>helper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Components/Command_line/helper.rst.txt" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> View page source code</font></font></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="helper">
+<h1><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2. </font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">helper</font></font><a class="headerlink" href="#helper" title="Permalink to title">¶</a></h1>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This section mainly introduces some commands currently supported, including system commands and user commands. Of course, some command boards may not support them. You can </font></font><code class="docutils literal notranslate"><span class="pre">help</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">check the supported commands. For more commands, please refer to the source code or add them by yourself</font></font></p>
+<div class="section" id="cli">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> cli command table</font></font><a class="headerlink" href="#cli" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<ul class="simple">
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">System command</font></font></strong></p></li>
+</ul>
+<div class="wy-table-responsive"><table class="docutils align-default">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 66%">
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>help</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">help</font></font></p></td>
+<td><p>print this</p></td>
+</tr>
+<tr class="row-odd"><td><p>p</p></td>
+<td><p>print memory</p></td>
+</tr>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>modify memory</p></td>
+</tr>
+<tr class="row-odd"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">for</font></font></p></td>
+<td><p>echo for command</p></td>
+</tr>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hit</font></font></p></td>
+<td><p>close CLI</p></td>
+</tr>
+<tr class="row-odd"><td><p>evname</p></td>
+<td><p>print device name</p></td>
+</tr>
+<tr class="row-even"><td><p>ysver</p></td>
+<td><p>system version</p></td>
+</tr>
+<tr class="row-odd"><td><p>eboot</p></td>
+<td><p>reboot system</p></td>
+</tr>
+<tr class="row-even"><td><p>oweroff</p></td>
+<td><p>poweroff system</p></td>
+</tr>
+<tr class="row-odd"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">name</font></font></p></td>
+<td><p>system time</p></td>
+</tr>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ta</font></font></p></td>
+<td><p>system ota</p></td>
+</tr>
+<tr class="row-odd"><td><p>s</p></td>
+<td><p>thread dump</p></td>
+</tr>
+</tbody>
+</table></div>
+<ul class="simple">
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">User command</font></font></strong></p></li>
+</ul>
+<div class="wy-table-responsive"><table class="docutils align-default">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>help</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">test_trng</font></font></p></td>
+<td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Test TRNG</font></font></p></td>
+</tr>
+<tr class="row-odd"><td><p>tcpc</p></td>
+<td><p>create a tcpc for in a new task</p></td>
+</tr>
+<tr class="row-even"><td><p>ipc</p></td>
+<td><p>iperf TCP client</p></td>
+</tr>
+<tr class="row-odd"><td><p>ips</p></td>
+<td><p>iperf TCP server</p></td>
+</tr>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ipu</font></font></p></td>
+<td><p>iperf UDP client</p></td>
+</tr>
+<tr class="row-odd"><td><p>psm_set</p></td>
+<td><p>psm set</p></td>
+</tr>
+<tr class="row-even"><td><p>psm_unset</p></td>
+<td><p>psm unset</p></td>
+</tr>
+<tr class="row-odd"><td><p>psm_get</p></td>
+<td><p>psm get</p></td>
+</tr>
+<tr class="row-even"><td><p>psm_dump</p></td>
+<td><p>psm dump</p></td>
+</tr>
+<tr class="row-odd"><td><p>psm_erase</p></td>
+<td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">psm dump</font></font></p></td>
+</tr>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">amr</font></font></p></td>
+<td><p>amr encode test</p></td>
+</tr>
+<tr class="row-odd"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">test_sdh</font></font></p></td>
+<td><p>test SDH based on fatfs</p></td>
+</tr>
+<tr class="row-even"><td><p>http</p></td>
+<td><p>http client download test</p></td>
+</tr>
+<tr class="row-odd"><td><p>mjpeg_start</p></td>
+<td><p>start mjpeg tasks</p></td>
+</tr>
+<tr class="row-even"><td><p>msg_set</p></td>
+<td><p>message set</p></td>
+</tr>
+<tr class="row-odd"><td><p>msg_get</p></td>
+<td><p>message get</p></td>
+</tr>
+<tr class="row-even"><td><p>msg_dump</p></td>
+<td><p>message dump</p></td>
+</tr>
+<tr class="row-odd"><td><p>msg_reset</p></td>
+<td><p>erase all message regions</p></td>
+</tr>
+<tr class="row-even"><td><p>msg_set_t1</p></td>
+<td><p>message set test 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>rf_dump</p></td>
+<td><p>rf dump</p></td>
+</tr>
+<tr class="row-even"><td><p>wifi_ap_start</p></td>
+<td><p>start AP mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>wifi_scan</p></td>
+<td><p>wifi scan</p></td>
+</tr>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">wifi_mon</font></font></p></td>
+<td><p>wifi monitor</p></td>
+</tr>
+<tr class="row-odd"><td><p>wifi_raw_send: wifi</p></td>
+<td><p>raw send test</p></td>
+</tr>
+<tr class="row-even"><td><p>wifi_sta_disconnect</p></td>
+<td><p>wifi station disconnect</p></td>
+</tr>
+<tr class="row-odd"><td><p>wifi_sta_connect</p></td>
+<td><p>wifi station connect</p></td>
+</tr>
+<tr class="row-even"><td><p>airkiss</p></td>
+<td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">airkiss</font></font></p></td>
+</tr>
+<tr class="row-odd"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">rc_fix_en</font></font></p></td>
+<td><p>wifi rate control fixed rate enable</p></td>
+</tr>
+<tr class="row-even"><td><p>rc_fix_dis</p></td>
+<td><p>wifi rate control fixed rate diable</p></td>
+</tr>
+<tr class="row-odd"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">wifi_capcode</font></font></p></td>
+<td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">capcode utils, wifi_capcode [cap_in] [cap_out]</font></font></p></td>
+</tr>
+<tr class="row-even"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">blfdt</font></font></p></td>
+<td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">blfdt</font></font></p></td>
+</tr>
+<tr class="row-odd"><td><p>tc_uart</p></td>
+<td><p>bl test uart</p></td>
+</tr>
+<tr class="row-even"><td><p>audio_play_ram</p></td>
+<td><p>play sound fm ram</p></td>
+</tr>
+<tr class="row-odd"><td><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">audio_config_es8311</font></font></p></td>
+<td><p>config ES831</p></td>
+</tr>
+<tr class="row-even"><td><p>audio_mp3</p></td>
+<td><p>play sou mp3</p></td>
+</tr>
+<tr class="row-odd"><td><p>audio_test</p></td>
+<td><p>play test</p></td>
+</tr>
+<tr class="row-even"><td><p>audio_play</p></td>
+<td><p>audio play</p></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Common commands</font></font><a class="headerlink" href="#id1" title="Permalink to title">¶</a></h2>
+<ul>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">View all supported commands</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">You can </font></font><code class="docutils literal notranslate"><span class="pre">TAB</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">view </font><font style="vertical-align: inherit;">it by pressing the key </font><font style="vertical-align: inherit;">, or enter the command </font></font><code class="docutils literal notranslate"><span class="pre">help</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">as follows:</font></font></p>
+<p><strong>#</strong> <code class="docutils literal notranslate"><span class="pre">help</span></code></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configure the temporary ssid and passwd of wifi (restart to restore the default value)</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">For example, configure wifi: </font></font><code class="docutils literal notranslate"><span class="pre">bl_wifi_005</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">and password: </font></font><code class="docutils literal notranslate"><span class="pre">123456789</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+enter the following command from the command line:</font></font></p>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#</font></font></strong> <code class="docutils literal notranslate"><span class="pre">wifi_sta_connect</span> <span class="pre">bl_wifi_005</span> <span class="pre">123456789</span></code></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configure the default ssid and passwd of wifi</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">For example, configure wifi: </font></font><code class="docutils literal notranslate"><span class="pre">bl_wifi_005</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">and password: </font></font><code class="docutils literal notranslate"><span class="pre">123456789</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+enter the following command from the command line:</font></font></p>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#</font></font></strong> <code class="docutils literal notranslate"><span class="pre">psm_set</span> <span class="pre">conf_ap_ssid</span> <span class="pre">bl_wifi_005</span></code></p>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#</font></font></strong> <code class="docutils literal notranslate"><span class="pre">psm_set</span> <span class="pre">conf_ap_psk</span> <span class="pre">123456789</span></code></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Start AP</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Use </font></font><code class="docutils literal notranslate"><span class="pre">wifi_ap_start</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">commands to start the AP, but you need to </font></font><code class="docutils literal notranslate"><span class="pre">psm_erase</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">erase the STA related configuration information and restart </font><font style="vertical-align: inherit;">before use </font><font style="vertical-align: inherit;">. </font><font style="vertical-align: inherit;">The activated AP SSID is </font></font><code class="docutils literal notranslate"><span class="pre">BL60X_uAP_</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">a HEX string with the last 3 bytes of the MAC address and the password is</font></font><code class="docutils literal notranslate"><span class="pre">bouffalolab</span></code></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">System restart</font></font></strong></p>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#</font></font></strong> <code class="docutils literal notranslate"><span class="pre">reboot</span></code></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Broadcasting and recording</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This module requires hardware with SD card support, temporarily only supports pcm format files, other formats are to be updated</font></font></p>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configure audio sampling frequency</font></font></p>
+<p><strong>#</strong> audio_config 11p025</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If there is no parameter, 16Khz is used by default, and 8k, 16k, 24k, 32k, 48k, 11p025, 22p05, 44p1 sampling frequencies are supported (11.025khz is represented by 11p025, others are similar), for example, the sampling frequency is set to 11.025Khz here</font></font></p>
+</li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">recording</font></font></p>
+<p><strong>#</strong> audio_record test.pcm</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If there is no parameter, the default recording is placed in the root directory of the sd card, the recording file name is record.pcm, where the configuration file name test.pcm is stored in the root directory test.pcm file, and the default recording is about 10S</font></font></p>
+</li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sound release</font></font></p>
+<p><strong>#</strong> audio_play test.pcm</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">If there is no parameter, the default is to use the recording file name record.pcm in the root directory of the SD card, where the file name test.pcm is configured, that is, the test.pcm audio in the SD card is played</font></font></p>
+</li>
+</ul>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Picture Transmission</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Use </font></font><code class="docutils literal notranslate"><span class="pre">mjpeg_start</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">commands to start image transmission related tasks</font></font></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Save picture to SD card</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This module requires hardware with SD card support, temporarily only supports jpeg format files, other formats are to be updated</font></font></p>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configure the quality of mjpeg images</font></font></p>
+<p><strong>#</strong> mjpegsd_config 50</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Temporarily support 6 types of quality 5, 10, 25, 50, 75, 100</font></font></p>
+</li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Start saving picture</font></font></p>
+<p><strong>#</strong> mjpegsd_start</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Start saving picture, save 50 frames of data by default</font></font></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">note</font></font></strong></p>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As above, the example command will save 50 0.jpeg, 1.jpeg...49.jpeg pictures in the root directory of the SD card</font></font></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Save AVI to SD card</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This module requires hardware with SD card support, temporarily only supports AIV format files, other formats are to be updated</font></font></p>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configure the quality of mjpeg images</font></font></p>
+<p><strong>#</strong> avisd_config 50 bl_avi_q50.avi</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Temporarily support 6 types of quality 5, 10, 25, 50, 75, 100</font></font></p>
+</li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Start save avi</font></font></p>
+<p><strong>#</strong> avisd_start</p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Start saving avi, save 750 frames by default</font></font></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">note</font></font></strong></p>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As above, the sample command will save a "bl_avi_q50.avi" file in the root directory of the SD card</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The memory card is recommended to be formatted as the allocation unit 64KB, and the file system is FAT32</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After avisd_start, if you want to modify the quality, you need to restart the development board</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The module needs to be supported by psram and camera, and needs to enable PSRAM and camera related switches</font></font></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">QR code distribution network</font></font></strong></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This module connects to WiFi through the QR code of the mobile phone sharing hotspot</font></font></p>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Start command</font></font></p>
+<p><code class="docutils literal notranslate"><span class="pre">qrcode_connect_wifi</span></code></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After entering the command, the camera will be initialized and then start to recognize the QR code in a loop</font></font></p>
+</li>
+<li><p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">note</font></font></strong></p>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">After the QR code is successfully recognized, the QR code information will be printed first, if it is not the QR code for sharing hotspots, it will continue to scan</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Supports SSID as Chinese, but requires unicode encoding rule to be UTF-8</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Support open hotspot</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This module needs psram and camera support, and needs to enable PSRAM and camera related switches</font></font></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aos_cli.html" class="btn btn-neutral float-right" title="3. cli" accesskey="n" rel="next"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Next page </font></font><span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../arch.html" class="btn btn-neutral float-left" title="1. arch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Previous page</font></font></a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        
+        © Copyright 2020, Bouffalo Lab
+
+    </font></font></p>
+  </div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    
+    
+    
+    Use </font></font><a href="http://sphinx-doc.org/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sphinx</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> constructed, using the 
+    
+     </font></font><a href="https://github.com/rtfd/sphinx_rtd_theme"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">theme</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+    
+    of </font></font><a href="https://readthedocs.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Read the Docs</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> development. 
+
+</font></font></footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+
+</body></html>

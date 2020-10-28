@@ -1,0 +1,461 @@
+<html class="writer-html5 translated-ltr" lang="en" style="height: 100%;"><head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>16. Easyflash4 boot times — BL602 IoT SDK release_bl_iot_sdk_1.6.11-1-g66bb28da 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css">
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="index" href="../../genindex.html">
+    <link rel="search" title="search for" href="../../search.html">
+    <link rel="next" title="1. arch" href="../../Components/arch.html">
+    <link rel="prev" title="15. BLSYNC-BLE" href="../demo_blsync_ble/blsync_ble.html"> 
+<script>(function(){(function injection() {
+  var pageLang = 'zh-CN';
+  var userLang = 'en';
+
+  var uid = '1E07F158C6FA4460B352973E9693B329';
+  var teId = 'TE_' + uid;
+  var cbId = 'TECB_' + uid;
+
+  function show() {
+    window.setTimeout(function() {
+      window[teId].showBanner(true);
+    }, 10);
+  }
+
+  function newElem() {
+    var elem = new google.translate.TranslateElement({
+      autoDisplay: false,
+      floatPosition: 0,
+      multilanguagePage: true,
+      pageLanguage: pageLang
+    });
+    return elem;
+  }
+
+  if (window[teId]) {
+    show();
+  } else {
+    if (!window.google || !google.translate ||
+        !google.translate.TranslateElement) {
+      if (!window[cbId]) {
+        window[cbId] = function() {
+          window[teId] = newElem();
+          show();
+        };
+      }
+      var s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=' +
+              encodeURIComponent(cbId) + '&client=tee&hl=' + userLang;
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  }
+})();})();</script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/element/TE_20200506_00/e/js/element/element_main.js"></script></head>
+
+<body class="wy-body-for-nav" style="position: relative; min-height: 100%; top: 40px;">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> BL602 IoT SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                release_bl_iot_sdk_1.6.11-1-g66bb28da
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search in the document">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer_Environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/Developer_Environment.html">1. Developer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/BLFlashEnv/BLFlashEnv.html">2. BLFlashEnv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/freedom_studio/freedom_studio.html">3. Freedom Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/eclipse/eclipse.html">4. Eclipse</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../helloworld/helloworld.html">1. Helloword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_aws/aws.html">2. aws</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_peripherals_gpio/GPIO.html">3. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_peripherals_uart_echo/uart_echo.html">4. UART_echo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_peripherals_uart_ioctl/uart_ioctl.html">5. UART_ioctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_protocols_http/http.html">6. Http client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_protocols_httpc/httpc.html">7. Httpc client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_storage_psm/psm.html">8. PSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_storage_romfs/romfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9. Romfs</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_system_cli/cli.html">10. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_system_fdt/fdt.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11. FDT</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_wifi/wifi.html">12. WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_ble/ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">13. BLE</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_mesh/mesh.html">14. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_blsync_ble/blsync_ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15. BLSYNC-BLE</font></font></a></li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#"><span class="toctree-expand"></span>16. Easyflash4 boot times</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.1. Overview</font></font></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><span class="toctree-expand"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.2. Algorithm implementation</font></font></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.2.1. 1. First use</font></font></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kv1kv2kv3">16.2.2. 2.添加 KV1、KV2、KV3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kv2-kv3-kv1-kv4">16.2.3. 3.修改 KV2 KV3，删除 KV1，添加 KV4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kv5-kv6-gc-garbage-clear">16.2.4. 4.添加 KV5 KV6，触发 GC （Garbage Clear）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#boot-times"><span class="toctree-expand"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.3. Boot times test</font></font></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">16.3.1. 1. 测试流程以及效果</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">16.3.2. 2. 测试分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/arch.html">1. arch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Command_line/helper.html">2. helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Command_line/aos_cli.html">3. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Hal_drv/gpio.html">4. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/bloop/bloop.html">5. BLOOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/blsync/blsync.html">6. BLSYNC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/dts/devicetree.html">7. device tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/log/blog.html">8. blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/security/security.html">9. Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/vfs/vfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10. TO VFS</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/yloop/yloop.html">11. yloop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/httpc/httpc.html">12. HTTPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/https/https.html">13. HTTPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/tls/tls.html">14. TLS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/provision_WiFi/provision_WiFi.html">15. Provision_WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/mesh/mesh.html">16. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/ble_stack/ble_stack.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17. BLE</font></font></a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API/sys/cronalarms.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. cronalarms</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API/wifi/wifi_mgmr.html">2. Wi-Fi Manager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BL602 IoT SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> »</li>
+        
+      <li><span class="section-number">16. </span>Easyflash4 boot times</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Examples/sdk_app_easyflash_boottimes/easyflash_boottimes.rst.txt" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> View page source code</font></font></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="easyflash4-boot-times">
+<span id="easyflash-boottimes-index"></span><h1><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16. </font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Easyflash4 boot times</font></font><a class="headerlink" href="#easyflash4-boot-times" title="Permalink to title">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Overview</font></font><a class="headerlink" href="#id1" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This example mainly introduces Easyflash4 start reading and writing test related</font></font></p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Algorithm implementation</font></font><a class="headerlink" href="#id2" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<div class="section" id="id3">
+<span id="id4"></span><h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.2.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 1. First use</font></font><a class="headerlink" href="#id3" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ul>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Assuming that there are 4 sectors in the ENV partition, the following will explain the corresponding Flash status and data changes under different operations according to the way of operating ENV.</font></font></p>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="" src="../../_images/image125.png">
+</div>
+</div></blockquote>
+</li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When it is used for the first time, EasyFlash will check the header of each sector. If it does not meet the specified format, it will perform all formatting operations. After formatting, the top of each sector will be stored in the header, which is responsible for recording the status of the current sector. Magic number and other information. </font><font style="vertical-align: inherit;">The initial state of formatting is empty.</font></font></p></li>
+</ul>
+</div>
+<div class="section" id="kv1kv2kv3">
+<span id="kv"></span><h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.2.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 2. Add KV1, KV2, KV3</font></font><a class="headerlink" href="#kv1kv2kv3" title="Permalink to title">¶</a></h3>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="" src="../../_images/image219.png">
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Before performing the adding operation, the appropriate address will be retrieved to store the new KV to be added. The retrieval strategy here is mainly:</font></font></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Make sure that the remaining capacity of the currently selected sector is sufficient</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Preferably select the sector in use state, and finally use the empty state sector</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Check whether there is a KV with the same name in the new KV. If there is, an additional action to delete the old value is required</font></font></p></li>
+</ol>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As can be seen from the above figure, KV1, KV2 and KV3 have been placed in sector1, and after adding, the sector status has also been modified to be in use.</font></font></p></li>
+</ul>
+</div>
+<div class="section" id="kv2-kv3-kv1-kv4">
+<span id="id5"></span><h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.2.3.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 3. Modify KV2 KV3, delete KV1, add KV4</font></font><a class="headerlink" href="#kv2-kv3-kv1-kv4" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="" src="../../_images/image317.png">
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When the ENV is modified, the old ENV will be deleted, and the state of the sector will also be modified to a dirty state, and then perform the operation of adding ENV.</font></font></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When modifying KV2, the old value of the existing KV2 is modified to be deleted, and the state of sector1 is modified to the dirty state. After that, the new value of KV2 is put into sector1. It is found that sector1 has no space, and the state of sector1 will also be modified Full state</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When modifying KV3, the old value of KV3 that already exists is modified to be deleted, and the state of sector1 is already dirty, and no further modification is required. </font><font style="vertical-align: inherit;">After searching, it is found that the new value of KV3 can only be placed in sector2, and after placing it in sector2, modify it to be in use;</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When deleting KV1, find the location of KV1 and modify it to the deleted state. The state of sector1 is already in the dirty state, so there is no need to modify it;</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">When adding KV4, after searching and finding a suitable storage location in sector2, after adding it, the status of sector2 is already in use and no further modification is required.</font></font></p></li>
+</ol>
+</div>
+<div class="section" id="kv5-kv6-gc-garbage-clear">
+<span id="gc"></span><h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.2.4.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 4. Add KV5 KV6, trigger GC (Garbage Clear)</font></font><a class="headerlink" href="#kv5-kv6-gc-garbage-clear" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<blockquote>
+<div><div class="figure align-default">
+<img alt="" src="../../_images/image47.png">
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perform the operation of adding KV5. Because KV5 is large and cannot fit in sector2, it can only be placed on a new sector, sector3. After adding, modify the status of sector3 to be in use;</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perform the operation of adding KV6, KV6 can only be placed under sector3. After placing it in sector 3, it is found that the space of sector3 is full, so modify it to the full state. </font><font style="vertical-align: inherit;">After the execution is completed, it is found that there is only one empty sector in the 4 sectors of the entire ENV. If this sector continues to be used, the GC operation cannot be performed anymore, so the GC request is triggered at this time;</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Execute the GC request, EasyFlash will find all sectors marked as full and dirty, and move the ENV inside them to other locations. </font><font style="vertical-align: inherit;">In this way, the KV2 on sector1 was moved to sector2. After sector1 was vacated, the format operation was performed on it again, so that there was another empty sector in the entire ENV partition.</font></font></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="boot-times">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.3.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Boot times test</font></font><a class="headerlink" href="#boot-times" title="Permalink to title">¶</a></h2>
+<div class="section" id="id6">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.3.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 1. Test process and effect</font></font><a class="headerlink" href="#id6" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The test process is: easyflash initialization → read boottimes → boottimes++ → write boottimes, reset and restart 800 times.</font></font></p>
+<ol class="arabic simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">easyflash initialization</font></font></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">uint32_t</span> <span class="n">timer_us</span><span class="p">;</span>
+
+<span class="n">timer_us</span> <span class="o">=</span> <span class="n">bl_timer_now_us</span><span class="p">();</span>
+<span class="n">easyflash_init</span><span class="p">();</span>
+<span class="n">timer_us</span> <span class="o">=</span> <span class="n">bl_timer_now_us</span><span class="p">()</span> <span class="o">-</span> <span class="n">timer_us</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="s2">"easyflash init time us </span><span class="si">%ld</span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">timer_us</span><span class="p">);</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Read and write boottimes</font></font></p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">static</span> <span class="n">void</span> <span class="n">__easyflash_boottimes_dump</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">char</span> <span class="o">*</span><span class="n">times</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="n">uint32_t</span> <span class="n">times_num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">char</span> <span class="n">env_set</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+    <span class="n">uint32_t</span> <span class="n">timer_us</span><span class="p">;</span>
+
+    <span class="n">timer_us</span> <span class="o">=</span> <span class="n">bl_timer_now_us</span><span class="p">();</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">ef_get_env</span><span class="p">(</span><span class="n">EASYFLASH_BOOT_TIMES</span><span class="p">);</span>
+    <span class="n">timer_us</span> <span class="o">=</span> <span class="n">bl_timer_now_us</span><span class="p">()</span> <span class="o">-</span> <span class="n">timer_us</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"easyflash read boot_times us </span><span class="si">%ld</span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">timer_us</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">times</span> <span class="o">==</span> <span class="n">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">__easyflash_first_boottimes</span><span class="p">();</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">times_num</span> <span class="o">=</span> <span class="n">atoi</span><span class="p">(</span><span class="n">times</span><span class="p">);</span>
+    <span class="n">sprintf</span><span class="p">(</span><span class="n">env_set</span><span class="p">,</span> <span class="s2">"</span><span class="si">%ld</span><span class="s2">"</span><span class="p">,</span> <span class="o">++</span><span class="n">times_num</span><span class="p">);</span>
+
+    <span class="n">timer_us</span> <span class="o">=</span> <span class="n">bl_timer_now_us</span><span class="p">();</span>
+    <span class="n">ef_set_env</span><span class="p">(</span><span class="n">EASYFLASH_BOOT_TIMES</span><span class="p">,</span> <span class="n">env_set</span><span class="p">);</span>
+    <span class="n">ef_save_env</span><span class="p">();</span>
+    <span class="n">timer_us</span> <span class="o">=</span> <span class="n">bl_timer_now_us</span><span class="p">()</span> <span class="o">-</span> <span class="n">timer_us</span><span class="p">;</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"easyflash write boot_times us </span><span class="si">%ld</span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">timer_us</span><span class="p">);</span>
+
+    <span class="n">printf</span><span class="p">(</span><span class="s2">"The system now boot times </span><span class="si">%ld</span><span class="se">\r\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">times_num</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic" start="3">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The test results are as follows:</font></font></p>
+<blockquote>
+<div><div class="figure align-default">
+<a class="reference internal image-reference" href="../../_images/image56.png"><img alt="" src="../../_images/image56.png" style="width: 900px; height: 450px;"></a>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Abscissa: boot times (unit: times)</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ordinate: time (unit: us)</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Red line: easyflash initialization time-consuming</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Green line: easyflash write time</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Yellow line: time-consuming to read easyflash</font></font></p>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">16.3.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 2. Test Analysis</font></font><a class="headerlink" href="#id7" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h3>
+<ol class="arabic simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The easyflash_init process includes read and other operations, so the initialization time is related to the read time. </font><font style="vertical-align: inherit;">The first spike phenomenon in the figure shows that easyflash is checking and formatting sectors at this time. For details, see: </font></font><a class="reference internal" href="#id3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">First use</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> .</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Analysis of reading process: Since easyflash4 writes a kv every time (for the detailed process of writing KV, see: </font></font><a class="reference internal" href="#kv"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">add KV</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ), a kv will be added after the old_kv address, and old_kv will be marked as "delete", so every time kv is read, it needs to be traversed. kv, the more write times, the longer the read time.</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Analysis of the writing process: read to find kv before writing (see: Modify KV for the detailed process of </font></font><a class="reference internal" href="#id5"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">modifying KV</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ), this test write after read, easyflash will update to cache after each read, so the write time is not linear with read relationship.</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As can be seen in the figure, when the boottimes are about 688 times, the read and write operation time is "initialized", and the write time has a spike. At this time, the GC is triggered (for details on the triggering GC process, see: </font></font><a class="reference internal" href="#gc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Triggering GC</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ), indicating that the flash size is already fast Only one free sector is left after the operation is exhausted.</font></font></p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../Components/arch.html" class="btn btn-neutral float-right" title="1. arch" accesskey="n" rel="next"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Next page </font></font><span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../demo_blsync_ble/blsync_ble.html" class="btn btn-neutral float-left" title="15. BLSYNC-BLE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Previous page</font></font></a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        
+        © Copyright 2020, Bouffalo Lab
+
+    </font></font></p>
+  </div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    
+    
+    
+    Use </font></font><a href="http://sphinx-doc.org/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sphinx</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> constructed, using the 
+    
+     </font></font><a href="https://github.com/rtfd/sphinx_rtd_theme"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">theme</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+    
+    of </font></font><a href="https://readthedocs.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Read the Docs</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> development. 
+
+</font></font></footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+
+</body></html>

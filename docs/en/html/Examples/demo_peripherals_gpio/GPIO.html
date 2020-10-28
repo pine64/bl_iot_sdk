@@ -1,0 +1,416 @@
+<html class="writer-html5 translated-ltr" lang="en" style="height: 100%;"><head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. GPIO — BL602 IoT SDK release_bl_iot_sdk_1.6.11-1-g66bb28da document</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css">
+  <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css">
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="index" href="../../genindex.html">
+    <link rel="search" title="search for" href="../../search.html">
+    <link rel="next" title="4. UART_echo" href="../demo_peripherals_uart_echo/uart_echo.html">
+    <link rel="prev" title="2. aws" href="../demo_aws/aws.html"> 
+<script>(function(){(function injection() {
+  var pageLang = 'auto';
+  var userLang = 'en';
+
+  var uid = '1E07F158C6FA4460B352973E9693B329';
+  var teId = 'TE_' + uid;
+  var cbId = 'TECB_' + uid;
+
+  function show() {
+    window.setTimeout(function() {
+      window[teId].showBanner(true);
+    }, 10);
+  }
+
+  function newElem() {
+    var elem = new google.translate.TranslateElement({
+      autoDisplay: false,
+      floatPosition: 0,
+      multilanguagePage: true,
+      pageLanguage: pageLang
+    });
+    return elem;
+  }
+
+  if (window[teId]) {
+    show();
+  } else {
+    if (!window.google || !google.translate ||
+        !google.translate.TranslateElement) {
+      if (!window[cbId]) {
+        window[cbId] = function() {
+          window[teId] = newElem();
+          show();
+        };
+      }
+      var s = document.createElement('script');
+      s.src = 'https://translate.google.com/translate_a/element.js?cb=' +
+              encodeURIComponent(cbId) + '&client=tee&hl=' + userLang;
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  }
+})();})();</script><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"><script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/element/TE_20200506_00/e/js/element/element_main.js"></script></head>
+
+<body class="wy-body-for-nav" style="position: relative; min-height: 100%; top: 40px;">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> BL602 IoT SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                release_bl_iot_sdk_1.6.11-1-g66bb28da
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search in the document">
+    <input type="hidden" name="check_keywords" value="yes">
+    <input type="hidden" name="area" value="default">
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Developer_Environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/Developer_Environment.html">1. Developer Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/BLFlashEnv/BLFlashEnv.html">2. BLFlashEnv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/freedom_studio/freedom_studio.html">3. Freedom Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Developer_Environment/eclipse/eclipse.html">4. Eclipse</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../helloworld/helloworld.html">1. Helloword</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_aws/aws.html">2. aws</a></li>
+<li class="toctree-l1 current"><a class="reference internal current" href="#"><span class="toctree-expand"></span>3. GPIO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.1. Overview</font></font></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.2. Use steps</font></font></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3. Application examples</font></font></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_peripherals_uart_echo/uart_echo.html">4. UART_echo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_peripherals_uart_ioctl/uart_ioctl.html">5. UART_ioctl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_protocols_http/http.html">6. Http client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_protocols_httpc/httpc.html">7. Httpc client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_storage_psm/psm.html">8. PSM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_storage_romfs/romfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">9. Romfs</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_system_cli/cli.html">10. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_system_fdt/fdt.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11. FDT</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_wifi/wifi.html">12. WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_ble/ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">13. BLE</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_mesh/mesh.html">14. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demo_blsync_ble/blsync_ble.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">15. BLSYNC-BLE</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdk_app_easyflash_boottimes/easyflash_boottimes.html">16. Easyflash4 boot times</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Components</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/arch.html">1. arch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Command_line/helper.html">2. helper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Command_line/aos_cli.html">3. cli</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Hal_drv/gpio.html">4. GPIO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/bloop/bloop.html">5. BLOOP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/blsync/blsync.html">6. BLSYNC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/dts/devicetree.html">7. device tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/log/blog.html">8. blog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/security/security.html">9. Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/vfs/vfs.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">10. TO VFS</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Middleware/yloop/yloop.html">11. yloop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/httpc/httpc.html">12. HTTPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/https/https.html">13. HTTPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/Network/tls/tls.html">14. TLS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/provision_WiFi/provision_WiFi.html">15. Provision_WiFi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/mesh/mesh.html">16. Mesh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Components/BLE/ble_stack/ble_stack.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">17. BLE</font></font></a></li>
+</ul>
+<p class="caption"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../API/sys/cronalarms.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. cronalarms</font></font></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../API/wifi/wifi_mgmr.html">2. Wi-Fi Manager</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">BL602 IoT SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> »</li>
+        
+      <li><span class="section-number">3. </span>GPIO</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/Examples/demo_peripherals_gpio/GPIO.rst.txt" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> View page source code</font></font></a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gpio">
+<span id="gpio-index"></span><h1><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3. </font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">GPIO</font></font><a class="headerlink" href="#gpio" title="Permalink to title">¶</a></h1>
+<div class="section" id="id1">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.1.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Overview</font></font><a class="headerlink" href="#id1" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">This example mainly introduces how to configure GPIO.</font></font></p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.2.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Use steps</font></font><a class="headerlink" href="#id2" title="Permalink to title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¶</font></font></a></h2>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compile </font></font><code class="docutils literal notranslate"><span class="pre">customer_app/sdk_app_gpio</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the project and download the project;</font></font></p></li>
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Use the </font><font style="vertical-align: inherit;">command to configure the input port gpio specified output mode, the pull-down case, as the input </font><font style="vertical-align: inherit;">command indicates the gpio8 set to output mode, and no drop-down;</font></font><code class="docutils literal notranslate"><span class="pre">gpio-func</span> <span class="pre">&lt;pinnum&gt;</span> <span class="pre">&lt;inputmode&gt;</span> <span class="pre">&lt;pullup&gt;</span> <span class="pre">&lt;pulldown&gt;</span></code><font style="vertical-align: inherit;"></font><code class="docutils literal notranslate"><span class="pre">gpio-func</span> <span class="pre">8</span> <span class="pre">0</span> <span class="pre">0</span> <span class="pre">0</span></code><font style="vertical-align: inherit;"></font></p></li>
+</ul>
+<div class="figure align-default">
+<img alt="" src="../../_images/image113.png">
+</div>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Use </font><font style="vertical-align: inherit;">command sets the specified gpio port level (the set output mode gpio);</font></font><code class="docutils literal notranslate"><span class="pre">gpio-set</span> <span class="pre">&lt;pinnum&gt;</span> <span class="pre">&lt;val&gt;</span></code><font style="vertical-align: inherit;"></font></p></li>
+</ul>
+<div class="figure align-default">
+<img alt="" src="../../_images/image212.png">
+</div>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Use </font><font style="vertical-align: inherit;">the command can get mouth gpio specified level.</font></font><code class="docutils literal notranslate"><span class="pre">gpio-get</span> <span class="pre">&lt;pinnum&gt;</span></code><font style="vertical-align: inherit;"></font></p></li>
+</ul>
+<div class="figure align-default">
+<img alt="" src="../../_images/image310.png">
+</div>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3.3.</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Application examples</font></font><a class="headerlink" href="#id3" title="Permalink to title">¶</a></h2>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Implementation of gpio-func command</font></font></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (5 != argc) {
+    printf("Usage: %s 24 1 1 0\r\n  set GPIO24 to input with pullup\r\n",
+            argv[0]
+    );
+    return;
+}
+ionum = atoi(argv[1]);
+inputmode = atoi(argv[2]);
+pullup = atoi(argv[3]);
+pulldown = atoi(argv[4]);
+if (ionum &lt; 0 || inputmode &lt; 0 || pullup &lt; 0 || pulldown &lt; 0) {
+    puts("Illegal arg\r\n");
+    return;
+}
+printf("GPIO%d is set %s with %s pullup %s pulldown\r\n",
+        ionum,
+        inputmode ? "input" : "output",
+        pullup ? "Active" : "null",
+        pulldown ? "Active" : "null"
+);
+if (inputmode) {
+    bl_gpio_enable_input(ionum, pullup ? 1 : 0, pulldown ? 1 : 0);
+} else {
+    bl_gpio_enable_output(ionum, pullup ? 1 : 0, pulldown ? 1 : 0);
+}
+</pre></div>
+</div>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Obtaining information through the command line, and passed as a parameter </font><font style="vertical-align: inherit;">or </font><font style="vertical-align: inherit;">function, thereby configuring the corresponding ports gpio.</font></font><code class="docutils literal notranslate"><span class="pre">bl_gpio_enable_input(uint8,</span> <span class="pre">uint8,</span> <span class="pre">uint8)</span></code><font style="vertical-align: inherit;"></font><code class="docutils literal notranslate"><span class="pre">bl_gpio_enable_output(uint8,</span> <span class="pre">uint8,</span> <span class="pre">uint8)</span></code><font style="vertical-align: inherit;"></font></p>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Implementation of gpio-set command</font></font></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (3 != argc) {
+    printf("Usage: %s 24 1\r\n  set GPIO24 output to high\r\n",
+            argv[0]
+    );
+    return;
+}
+ionum = atoi(argv[1]);
+val = atoi(argv[2]);
+if (ionum &lt; 0 || val &lt; 0) {
+    puts("Illegal arg\r\n");
+    return;
+}
+printf("GPIO%d is set to %s\r\n",
+    ionum,
+    val ? "high" : "lo"
+);
+bl_gpio_output_set(ionum, val ? 1 : 0);
+</pre></div>
+</div>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Obtaining information through the command line, and as an argument to </font><font style="vertical-align: inherit;">a function, corresponding to the level provided gpio opening.</font></font><code class="docutils literal notranslate"><span class="pre">bl_gpio_output_set(uint8,</span> <span class="pre">uint8)</span></code><font style="vertical-align: inherit;"></font></p>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Implementation of gpio-get command</font></font></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>if (2 != argc) {
+     printf("Usage: %s 24\r\n  get GPIO24 value\r\n",
+             argv[0]
+     );
+     return;
+ }
+ ionum = atoi(argv[1]);
+ if (ionum &lt; 0) {
+     puts("Illegal arg\r\n");
+     return;
+ }
+ ret = bl_gpio_input_get(ionum, &amp;val);
+ printf("GPIO%d val is %s\r\n",
+     ionum,
+     0 == ret ? (val ? "high" : "low") : "Err"
+ );
+</pre></div>
+</div>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Obtaining information through the command line, and passed as parameters to </font><font style="vertical-align: inherit;">a level corresponding to the opening function gpio acquired.</font></font><code class="docutils literal notranslate"><span class="pre">bl_gpio_input_get(uint8,</span> <span class="pre">uint8*)</span></code><font style="vertical-align: inherit;"></font></p>
+<ul class="simple">
+<li><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">In </font></font><code class="docutils literal notranslate"><span class="pre">customer_app/sdk_app_gpio/sdk_app_gpio/main.c</span></code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">the </font><font style="vertical-align: inherit;">call to the function in the </font><font style="vertical-align: inherit;">initialization gpio related operations command.</font></font><code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">_cli_init()</span></code><font style="vertical-align: inherit;"></font><code class="docutils literal notranslate"><span class="pre">gpio_cli_init()</span></code><font style="vertical-align: inherit;"></font></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../demo_peripherals_uart_echo/uart_echo.html" class="btn btn-neutral float-right" title="4. UART_echo" accesskey="n" rel="next"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Next page </font></font><span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../demo_aws/aws.html" class="btn btn-neutral float-left" title="2. aws" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Previous page</font></font></a>
+      
+    </div>
+  
+
+  <hr>
+
+  <div role="contentinfo">
+    <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        
+        © Copyright 2020, Bouffalo Lab
+
+    </font></font></p>
+  </div><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+    
+    
+    
+    Use </font></font><a href="http://sphinx-doc.org/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sphinx</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> constructed, using the 
+    
+     </font></font><a href="https://github.com/rtfd/sphinx_rtd_theme"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">theme</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+    
+    of </font></font><a href="https://readthedocs.org"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Read the Docs</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> development. 
+
+</font></font></footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+
+</body></html>

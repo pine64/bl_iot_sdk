@@ -213,7 +213,7 @@ static int bt_mesh_ccm_decrypt(const u8_t key[16], u8_t nonce[13],
 	size_t i, j;
 	int err;
 
-	if (msg_len < 1 || aad_len >= 0xff00) {
+	if (msg_len < 1 || aad_len >= 0xff00 || (aad_len && !aad)) {
 		return -EINVAL;
 	}
 
@@ -377,7 +377,7 @@ static int bt_mesh_ccm_encrypt(const u8_t key[16], u8_t nonce[13],
 	BT_DBG("aad_len %zu mic_size %zu", aad_len, mic_size);
 
 	/* Unsupported AAD size */
-	if (aad_len >= 0xff00) {
+	if (aad_len >= 0xff00 || (aad_len && !aad)) {
 		return -EINVAL;
 	}
 

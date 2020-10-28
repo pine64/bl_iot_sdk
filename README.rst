@@ -10,8 +10,8 @@ Fire an issue, if you have any issue or need any support.
 
 Hardware
 =========
-BL602 is a 32-bit RISC-V based combo chipset supporting Wi-Fi and BLE (Bluetooth Low Energy). The chip is made by `Nanjing-based Bouffalo Lab <https://www.bouffalolab.com/bl602>` for ultra-low-power applications.
-In terms of price range and feature set, the chip is competing against `Espressif ESP8266 <https://www.espressif.com/en/products/socs/esp8266>`
+BL602 is a 32-bit RISC-V based combo chipset supporting Wi-Fi and BLE (Bluetooth Low Energy). The chip is made by `Nanjing-based Bouffalo Lab <https://www.bouffalolab.com/bl602>`_ for ultra-low-power applications.
+In terms of price range and feature set, the chip is competing against `Espressif ESP8266 <https://www.espressif.com/en/products/socs/esp8266>`_
 
 Comparison with ESP8266
 =======================

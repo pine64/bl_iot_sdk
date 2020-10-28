@@ -1,7 +1,10 @@
-README
+Bouffalolab BL602 IOT SDK
 =========
 
-Bouffalolab bl_iot_sdk. Support BL602 Wi-Fi/BLE Combo RISC-V based Chip.
+This repository is the Software Development Kit for Bouffalolab's
+BL602 Wi-Fi/BLE Combo RISC-V SOC.  It contains documentation, tools,
+and examples that support development of products that can run on a
+BL602.
 
 Check ``docs/html`` for more detail.
 

@@ -4,10 +4,10 @@ BL602 SDK (Pine64 version)
 Join us on `Discord <https://discord.gg/89VWQVH>`_, `Telegram <https://t.me/joinchat/Kmi2S0nOsT240emHk-aO6g>`_, `Matrix <https://matrix.to/#/#pine64-nutcracker:matrix.org>`_
 
 This repository contains the Pine64 fork of Bouffalo Lab's SDK for their BL602
-Wi-Fi/BLE Combo RISC-V SoC. The upstream documentation lives in ``docs/html``.
-Pine64 also maintains a separate documentation repository containing
+Wi-Fi/BLE Combo RISC-V SoC. Documentation, including upstream documentation,
 translations, mirrored technical documentation, and original reverse engineered
-documentation at `bl602-docs <https://github.com/pine64/bl602-docs>`_.
+documentation is at `bl602-docs <https://github.com/pine64/bl602-docs>`_, which
+is cloned as a submodule of this repository at ``docs``.
 
 This repository is the central focus of Pine64's
 `Nutcracker Challenge <https://www.pine64.org/2020/10/28/nutcracker-challenge-blob-free-wifi-ble/>`_.

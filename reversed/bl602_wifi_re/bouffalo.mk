@@ -1,4 +1,4 @@
-COMPONENT_SRCS := ./sysctrl.c
+COMPONENT_SRCS := ./sysctrl.c ./hal_mib.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 COMPONENT_SRCDIRS := ./
 

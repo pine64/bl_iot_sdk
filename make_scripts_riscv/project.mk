@@ -103,6 +103,7 @@ ifndef COMPONENT_DIRS
 EXTRA_COMPONENT_DIRS ?=
 COMPONENT_DIRS := $(PROJECT_PATH)/components $(EXTRA_COMPONENT_DIRS) $(BL60X_SDK_PATH)/components $(BL60X_SDK_PATH)/customer_components $(PROJECT_PATH)/$(PROJECT_NAME) $(PROJECT_COMPONENT)
 endif
+COMPONENT_DIRS += $(BL60X_SDK_PATH)/reversed
 export COMPONENT_DIRS
 
 # The project Makefile can define a list of components, but if it does not do this we just take all available components
@@ -123,6 +124,12 @@ COMPONENTS_REAL_PATH := $(patsubst %/,%,$(COMPONENTS_RAL_PATH))
 #endif
 # After a full manifest of component names is determined, subtract the ones explicitly omitted by the project Makefile.
 ifdef INCLUDE_COMPONENTS
+
+# If we use the proprietary bl602_wifi, add our REd part too
+ifneq ("$(filter bl602_wifi,$(INCLUDE_COMPONENTS))","")
+INCLUDE_COMPONENTS += bl602_wifi_re
+endif
+
 # match exclude comps with EXCLUDE_COMPONENTS variable
 define include_comps_add
 include_path += $(filter %/$(1), $(COMPONENTS_REAL_PATH))

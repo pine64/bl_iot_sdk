@@ -5,6 +5,9 @@ Join us on `Discord <https://discord.gg/89VWQVH>`_, `Telegram <https://t.me/join
 
 This repository contains the Pine64 fork of Bouffalo Lab's SDK for their BL602
 Wi-Fi/BLE Combo RISC-V SoC. The upstream documentation lives in ``docs/html``.
+Pine64 also maintains a separate documentation repository containing
+translations, mirrored technical documentation, and original reverse engineered
+documentation at `bl602-docs <https://github.com/pine64/bl602-docs>`_.
 
 This repository is the central focus of Pine64's
 `Nutcracker Challenge <https://www.pine64.org/2020/10/28/nutcracker-challenge-blob-free-wifi-ble/>`_.
@@ -39,18 +42,7 @@ Hardware
 BL602 is a 32-bit RISC-V based combo chipset supporting Wi-Fi and BLE (Bluetooth
 Low Energy). The chip is made by `Nanjing-based Bouffalo Lab <https://www.bouffalolab.com/bl602>`_
 for ultra-low-power applications. In terms of price range and feature set, the
-chip is competing against `Espressif ESP8266 <https://www.espressif.com/en/products/socs/esp8266>`_
-
-- `BL602/604 Datasheet <docs/BL602_BL604_DS_Datasheet.pdf>`_
-  (34 pages): Includes pinout, memory map, and general peripheral descriptions
-  but no detailed functional specification or register listings. Sipeed, a board
-  vendor that plans to use the BL602, `claims <https://twitter.com/SipeedIO/status/1321658609990725633>`_
-  that full register documentation will be available sometime in November 2020.
-- `soc602_reg.svd <components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/soc602_reg.svd>`_:
-  Contains a seemingly-complete register listing, with names but no descriptions,
-  for the BL602.
-- `Hardware Notes <docs/hardware_notes.md>`_: Additional information gathered
-  from this repository and elsewhere on the internet.
+chip is competing against `Espressif ESP8266 <https://www.espressif.com/en/products/socs/esp8266>`_.
 
 Comparison with ESP8266
 -----------------------

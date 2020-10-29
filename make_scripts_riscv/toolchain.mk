@@ -7,7 +7,7 @@ CONFIG_TOOLPREFIX ?= $(CONFIG_TOOLPATH)/bin/riscv64-unknown-elf-
 
 all: toolchain
 
-$(CONFIG_TOOLPATH)/.generated.linux.gtk.x86_64:
+$(CONFIG_TOOLPATH)/.installed:
 	$(summary) WGET $(CONFIG_TOOLCHAIN_NAME).tar.gz
 	cd $(CONFIG_TOOLPATH) && wget https://static.dev.sifive.com/dev-tools/$(CONFIG_TOOLCHAIN_NAME).tar.gz
 	$(summary) TAR $(patsubst $(PWD)/%,%,$(CONFIG_TOOLCHAIN_NAME).tar.gz)
@@ -19,4 +19,4 @@ $(CONFIG_TOOLPATH)/.generated.linux.gtk.x86_64:
 
 # use hidden file as indicator that toolchain is fine, but if it's not, try
 # downloading it from SiFive, unpack in place and remove tarball
-toolchain: $(CONFIG_TOOLPATH)/.generated.linux.gtk.x86_64
+toolchain: $(CONFIG_TOOLPATH)/.installed

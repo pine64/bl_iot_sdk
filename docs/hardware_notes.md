@@ -48,7 +48,7 @@ unified table. I make no guarantees to the accuracy of this table.
 |---------------|---------------|--------------------------------------------|
 | `0x0200_0000` | `0x027F_FFFF` |  RISC-V CLINT                              |
 | `0x0280_0000` | `0x02FF_FFFF` |  Hart 0 CLIC                               |
-| `0x2100_0000` | `0x2101_FFFF` |  Mask ROM (holds ROMDRIVER code)           |
+| `0x2100_0000` | `0x2101_FFFF` |  Mask ROM (holds boot and RomDriver code)  |
 | `0x2200_8000` | `0x2201_3FFF` |  ITCM (Instruction Tightly Coupled Memory) |
 | `0x2201_4000` | `0x2201_BFFF` |  DTCM (Data Tightly Coupled Memory)        |
 | `0x2202_0000` | `0x2202_FFFF` |  Main RAM                                  |
@@ -105,6 +105,41 @@ addresses are as follows:
 | WRAM   | `0x4202_0000` | `0x2202_0000` | `0x3202_0000` | `0x5202_0000` |
 | TCM    | `0x2200_8000` | `0x3200_8000` | `0x4200_8000` | `0x5200_8000` |
 
+On-chip ROM
+-----------
+The BL602 has 128KiB of "ROM," mapped at `0x2100_0000`. As far as I can tell,
+this is an actual Mask ROM that's hardwired at the factory, not a flash or an
+EEPROM. What immutable data could take up 128KiB? Code, it appears! In the
+[OpenOCD configuration][8] for the BL602, `pc` is forced to the start of the
+ROM after reset. Therefore, it seems likely that the beginning of the ROM holds
+a BootROM which implements the various boot modes ("UART, SDIO, and Flash")
+listed in the datasheet.
+
+But that's not all that's in the ROM. There's an interesting peripheral driver
+called [RomDriver][9], which exposes a number of functions for global register
+configuration, power+clock+sleep management, serial flash setup, and general
+operations like delay and memcpy. However, none of the functions are actually
+implemented by the driver! Instead, it forwards each call to a corresponding
+function pointer in a table at `0x2101_0800`, which is within the ROM. I assume
+the function pointers in that table are also ROM addresses, meaning the bulk
+of the ROM is likely taken up by library code. The SDK has a macro called
+`BL602_USE_ROM_DRIVER` which selects whether to use the ROM implementation of
+functions when available.
+
+Registers in the TZ ("trust isolation") peripherals reference a ROM (for
+example, `tzc_rom0_r0_lock`). This could indicate that areas of the ROM need
+protection from unauthorized reads. Perhaps the ROM holds factory-provisioned,
+per-device keys that are used as part of the secure boot flow? This, however,
+is purely speculation.
+
+Here are the known areas of the ROM's memory map:
+
+| Base address  | Top address   |  Name                                      |
+|---------------|---------------|--------------------------------------------|
+| `0x2100_0000` | `0x2101_07FF` |  BootROM (+ other stuff?)                  |
+| `0x2101_0800` | `0x2101_0FFF` |  RomDriver function table                  |
+| `0x2101_1000` | `0x2101_FFFF` |  RomDriver functions (+ other stuff?)      |
+
 [1]: BL602_BL604_DS_Datasheet.pdf
 [2]: ../components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/soc602_reg.svd
 [3]: ../components/bl602/bl602_std/bl602_std/Device/Bouffalo/BL602/Peripherals/bl602.svd
@@ -112,3 +147,5 @@ addresses are as follows:
 [5]: https://www.cnx-software.com/2020/10/24/bl602-bl604-risc-v-wifi-bluetooth-5-0-le-soc-will-sell-at-esp8266-price-point/#comment-576285
 [6]: https://www.sifive.com/cores/e24
 [7]: https://sifive.cdn.prismic.io/sifive/dffb6a15-80b3-42cb-99e1-23ce6fd1d052_sifive_E24_rtl_full_20G1.03.00_manual.pdf
+[8]: ../tools/debug/tgt_602.cfg
+[9]: ../components/bl602/bl602_std/bl602_std/StdDriver/Inc/bl602_romdriver.h

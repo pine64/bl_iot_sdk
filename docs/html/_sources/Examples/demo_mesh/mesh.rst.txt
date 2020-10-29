@@ -12,7 +12,7 @@ Mesh
 -----------
 
 - 准备 手机安装APP ``bl_mesh_app.apk``
-- 编译 ``customer_app/bl602_demo_event`` 工程并下载工程；
+- 编译 ``examples/bl602_demo_event`` 工程并下载工程；
 - 在串口中运行Mesh相关命令:
 
    #stack_ble

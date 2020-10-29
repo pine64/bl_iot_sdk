@@ -30,7 +30,7 @@ Pwm
         };
    };
 
-- 编译 ``customer_app/sdk_app_pwm`` 工程并下载对应的bin文件；
+- 编译 ``examples/sdk_app_pwm`` 工程并下载对应的bin文件；
 
 
 功能

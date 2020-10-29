@@ -11,7 +11,7 @@ AUDIO UDP
 使用步骤
 -----------
 
-- 编译 ``customer_app/sdk_app_audio_udp`` 工程，勾选烧录软件中的romfs选项，
+- 编译 ``examples/sdk_app_audio_udp`` 工程，勾选烧录软件中的romfs选项，
 然后选中处理后的音频文件所在的文件夹并下载工程，如图所示：
 
     .. figure:: imgs/image1.png

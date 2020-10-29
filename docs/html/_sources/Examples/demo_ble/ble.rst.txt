@@ -11,7 +11,7 @@ BLE
 使用步骤
 -----------
 
-- 编译 ``customer_app/bl602_demo_event`` 或 ``customer_app/bl702_demo_event`` 工程并下载工程；
+- 编译 ``examples/bl602_demo_event`` 或 ``examples/bl702_demo_event`` 工程并下载工程；
 - 使用 ``stack_ble`` 命令初始化ble，打印的部分log如下。
 
     .. figure:: imgs/image1.png

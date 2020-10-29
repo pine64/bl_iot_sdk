@@ -9,7 +9,7 @@ cli
 使用步骤
 ----------
 
-- 编译 ``customer_app/sdk_app_cli`` 工程并下载对应的bin文件。
+- 编译 ``examples/sdk_app_cli`` 工程并下载对应的bin文件。
 - 使用 ``test`` 命令即可在终端看到打印的 ``hello world``。
 
 应用实例

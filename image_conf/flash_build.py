@@ -1387,7 +1387,7 @@ class bl_flash_select():
 
 if __name__ == '__main__':
     abs_path = os.path.abspath('..')
-    app_path = os.path.join(abs_path, "customer_app", sys.argv[1])
+    app_path = os.path.join(abs_path, "examples", sys.argv[1])
     demo_name = sys.argv[1]
     chip_name = sys.argv[2].lower()
     default_conf_path = chip_name

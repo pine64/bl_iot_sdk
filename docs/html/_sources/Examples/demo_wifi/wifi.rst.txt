@@ -11,7 +11,7 @@ WiFi
 使用步骤
 ----------------
 
-- 编译 ``customer_app/bl602_demo_wifi`` 工程并下载对应的bin文件；
+- 编译 ``examples/bl602_demo_wifi`` 工程并下载对应的bin文件；
 - 成功启动IoT Board之后在终端输入命令 ``stack_wifi`` 创建wifi任务。
 
 .. figure:: imgs/image1.png

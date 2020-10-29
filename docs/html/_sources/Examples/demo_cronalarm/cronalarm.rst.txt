@@ -13,7 +13,7 @@ cronalarm
 
 - 使用步骤：
    
-  - 编译 ``customer_app/sdk_app_cronalarm`` 工程并下载工程；
+  - 编译 ``examples/sdk_app_cronalarm`` 工程并下载工程；
   - 在main.c中有相关头文件的使用，main.c中aos_loop_proc 中有cronalarm相关的初始化。使用cronalarm 需要包含头文件cronalarms.h 。
 
 

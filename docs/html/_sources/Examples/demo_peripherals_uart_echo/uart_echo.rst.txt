@@ -56,7 +56,7 @@ UART_echo
 
 - 使用步骤：
  - 将板子的 ``gpio3`` 和 ``gpio4`` 和 ``GND`` 分别与 ``USB转TTL`` 串口线的 ``TXD`` 、 ``RXD`` 、 ``GND`` 分别连接起来；
- - 编译 ``customer_app/sdk_app_uart_echo`` 工程并下载工程；
+ - 编译 ``examples/sdk_app_uart_echo`` 工程并下载工程；
  - 打开一个串口终端窗口A（波特率为115200，用于接收和发送uart消息），打开另一个串口终端窗口B（波特率为2000000，用于打印log）。板子上电可以看到窗口A接收到 ``1234567890abcdefg`` ，窗口B打印的log 停止在 ``send case`` 处，在A窗口中输入 ``1234567890abcdefg`` （没有回显）可以在B串口看到 ``recv case`` 和 ``end`` 的消息，此时说明演示成功。
 
 .. figure:: imgs/image1.png
@@ -89,4 +89,4 @@ UART_echo
     }
     log_step(ci_table_step_end);
 
-- 在 ``customer_app/sdk_app_uart_echo/sdk_app_uart_echo/main.c`` 中 ``static void aos_loop_proc(void *pvParameters)`` 函数里调用ci_loop_proc()函数创建 ``uart_echo`` 的任务。
+- 在 ``examples/sdk_app_uart_echo/sdk_app_uart_echo/main.c`` 中 ``static void aos_loop_proc(void *pvParameters)`` 函数里调用ci_loop_proc()函数创建 ``uart_echo`` 的任务。

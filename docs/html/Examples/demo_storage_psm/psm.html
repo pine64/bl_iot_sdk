@@ -217,7 +217,7 @@
 <div class="section" id="id2">
 <h2><span class="section-number">8.2. </span>使用步骤<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
 <ul>
-<li><p>编译 <code class="docutils literal notranslate"><span class="pre">customer_app/sdk_app_psm</span></code> 工程并下载bin文件。</p></li>
+<li><p>编译 <code class="docutils literal notranslate"><span class="pre">examples/sdk_app_psm</span></code> 工程并下载bin文件。</p></li>
 <li><p>使用 <code class="docutils literal notranslate"><span class="pre">psm_set</span> <span class="pre">&lt;key&gt;</span> <span class="pre">&lt;value&gt;</span></code> 命令向指定ENV_name中写入数据，如输入 <code class="docutils literal notranslate"><span class="pre">psm_set</span> <span class="pre">data_test</span> <span class="pre">12345678</span></code> 命令表示将ENV_name为 <code class="docutils literal notranslate"><span class="pre">data_test</span></code> 的值设为 <code class="docutils literal notranslate"><span class="pre">12345678</span></code> ；</p>
 <div class="figure align-default">
 <img alt="" src="../../_images/image118.png" />
@@ -253,7 +253,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easyflash_init</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>在操作psm时首先需要调用easyflash的初始化接口。该函数在 <code class="docutils literal notranslate"><span class="pre">customer_app/sdk_app_psm/sdk_app_psm/main.c</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">aos_loop_proc(void</span> <span class="pre">*pvParameters)</span></code> 函数里完成初始化。</p>
+<p>在操作psm时首先需要调用easyflash的初始化接口。该函数在 <code class="docutils literal notranslate"><span class="pre">examples/sdk_app_psm/sdk_app_psm/main.c</span></code> 中的 <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">void</span> <span class="pre">aos_loop_proc(void</span> <span class="pre">*pvParameters)</span></code> 函数里完成初始化。</p>
 <ul class="simple">
 <li><p>写数据</p></li>
 </ul>

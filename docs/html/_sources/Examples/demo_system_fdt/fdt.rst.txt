@@ -11,7 +11,7 @@ FDT
 使用步骤
 ----------------
 
-- 编译 ``customer_app/sdk_app_fdt`` 工程并下载对应的bin文件；
+- 编译 ``examples/sdk_app_fdt`` 工程并下载对应的bin文件；
 - 使用 ``fdt`` 命令将fdt文件中的wifi配置解析出来，并且打印出整个文件内容。
 
 应用实例

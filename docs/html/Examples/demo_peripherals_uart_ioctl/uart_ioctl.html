@@ -223,7 +223,7 @@
 <blockquote>
 <div><ul class="simple">
 <li><p>将板子的 <code class="docutils literal notranslate"><span class="pre">gpio3</span></code> 和 <code class="docutils literal notranslate"><span class="pre">gpio4</span></code> 和 <code class="docutils literal notranslate"><span class="pre">GND</span></code> 分别与 <code class="docutils literal notranslate"><span class="pre">USB转TTL</span></code> 串口线的 <code class="docutils literal notranslate"><span class="pre">TXD</span></code> 、 <code class="docutils literal notranslate"><span class="pre">RXD</span></code> 、 <code class="docutils literal notranslate"><span class="pre">GND</span></code> 分别连接起来；</p></li>
-<li><p>编译 <code class="docutils literal notranslate"><span class="pre">customer_app/sdk_app_uart_ctl</span></code> 工程并下载工程；</p></li>
+<li><p>编译 <code class="docutils literal notranslate"><span class="pre">examples/sdk_app_uart_ctl</span></code> 工程并下载工程；</p></li>
 <li><p>打开一个串口终端窗口A（波特率为115200，用于接收和发送uart消息），打开另一个串口终端窗口B（波特率为2000000，用于打印log）。例如使用应用实现中case1中的配置，在窗口A中输入 <code class="docutils literal notranslate"><span class="pre">123456789abcdef</span></code> ，在窗口A中可以看到接收到的数据，同时窗口B中打印出接收数据的个数。</p></li>
 </ul>
 </div></blockquote>

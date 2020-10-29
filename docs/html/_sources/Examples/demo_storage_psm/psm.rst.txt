@@ -10,7 +10,7 @@ PSM
 
 使用步骤
 -----------
-- 编译 ``customer_app/sdk_app_psm`` 工程并下载bin文件。
+- 编译 ``examples/sdk_app_psm`` 工程并下载bin文件。
 - 使用 ``psm_set <key> <value>`` 命令向指定ENV_name中写入数据，如输入 ``psm_set data_test 12345678`` 命令表示将ENV_name为 ``data_test`` 的值设为 ``12345678`` ；
 
   .. figure:: imgs/image1.png
@@ -45,7 +45,7 @@ PSM
 
     easyflash_init();
 
-在操作psm时首先需要调用easyflash的初始化接口。该函数在 ``customer_app/sdk_app_psm/sdk_app_psm/main.c`` 中的 ``static void aos_loop_proc(void *pvParameters)`` 函数里完成初始化。
+在操作psm时首先需要调用easyflash的初始化接口。该函数在 ``examples/sdk_app_psm/sdk_app_psm/main.c`` 中的 ``static void aos_loop_proc(void *pvParameters)`` 函数里完成初始化。
 
 - 写数据
 

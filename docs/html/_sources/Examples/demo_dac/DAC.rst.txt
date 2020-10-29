@@ -11,7 +11,7 @@ DAC
 使用步骤
 -----------
 
-- 编译 ``customer_app/sdk_app_dac`` 工程并下载工程；
+- 编译 ``examples/sdk_app_dac`` 工程并下载工程；
   烧写的时候将 audio_32k 音频文件烧写进去romfs。
 
 

@@ -11,7 +11,7 @@ BLSYNC-BLE
 APP使用步骤
 -------------
 
-- 编译 ``customer_app/sdk_app_ble_sync`` 工程并下载工程固件；
+- 编译 ``examples/sdk_app_ble_sync`` 工程并下载工程固件；
 - 固件上电运行会自动开启ble广播，等待手机APP连接配网，如下所示；
 
     .. figure:: imgs/image1.png
@@ -43,7 +43,7 @@ APP使用步骤
 微信小程序使用步骤
 ---------------------
 
-- 编译 ``customer_app/sdk_app_ble_sync`` 工程并下载工程固件；
+- 编译 ``examples/sdk_app_ble_sync`` 工程并下载工程固件；
 - 固件上电运行会自动开启ble广播，等待手机APP连接配网，如下所示；
 
     .. figure:: imgs/image1.png

@@ -42,7 +42,7 @@ BL602 SDK Starter Guide
 代码的编译和烧录
 ----------------
 
--  进入需要编译的工程目录，命令：\ ``cd customer_app/bl602_demo_event``\ ，进行编译，命令\ ``./genromap``
+-  进入需要编译的工程目录，命令：\ ``cd examples/bl602_demo_event``\ ，进行编译，命令\ ``./genromap``
 
    .. figure:: imgs/image4.png
       :alt:

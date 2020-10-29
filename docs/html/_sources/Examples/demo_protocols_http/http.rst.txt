@@ -15,7 +15,7 @@ Http client
 
 - 使用步骤：
    
-  - 编译 ``customer_app/sdk_app_http_client_socket`` 工程并下载工程；
+  - 编译 ``examples/sdk_app_http_client_socket`` 工程并下载工程；
   - 在终端输入开启wifi的命令： ``stack_wifi`` ，输入连接wifi的命令： ``wifi_sta_connect <name> <key>`` ，并确认wifi连接成功（如输入：wifi_sta_connect bl_test_005 12345678）；
 
     .. figure:: imgs/image1.png
@@ -111,4 +111,4 @@ Http client
 
     close(sockfd);
 
-- 在 ``customer_app/sdk_app_http_client_socket/sdk_app_http_client_socket/demo.c`` 中 ``static void _cli_init()`` 的函数里调用 ``http_client_cli_init()`` 初始化http命令
+- 在 ``examples/sdk_app_http_client_socket/sdk_app_http_client_socket/demo.c`` 中 ``static void _cli_init()`` 的函数里调用 ``http_client_cli_init()`` 初始化http命令

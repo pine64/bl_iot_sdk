@@ -1,3 +1,6 @@
 # flash_build.py dependencies
-fdt>=0.2.0
-pycryptodomex>=3.9.8
+configobj==5.0.6
+fdt==0.2.0
+pycryptodomex==3.9.8
+six==1.15.0
+toml==0.10.1

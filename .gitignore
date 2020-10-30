@@ -9,3 +9,6 @@
 
 # MacOS
 .DS_Store
+
+# Emacs and mv -b backups
+*~

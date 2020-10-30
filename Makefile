@@ -1,5 +1,9 @@
 serve:
-	cd docs/html && python -m SimpleHTTPServer
+	@ cd docs/html && if python -V 2>&1 | grep 'Python 2' > /dev/null; then \
+		python -m SimpleHTTPServer ;\
+	else \
+		python -m http.server ;\
+	fi
 
 clean:
 	find . -name build_out|xargs rm -rf

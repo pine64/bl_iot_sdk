@@ -141,6 +141,10 @@ raw_input(struct pbuf *p, struct netif *inp)
 
   LWIP_UNUSED_ARG(inp);
 
+#if !(LWIP_IPV4) && !(LWIP_IPV6)
+#error proto not initialised, please set either LWIP_IPV4 and/or LWIP_IPV6
+#endif
+
 #if LWIP_IPV6
 #if LWIP_IPV4
   if (IP_HDR_GET_VERSION(p->payload) == 6)

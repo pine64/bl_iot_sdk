@@ -102,7 +102,7 @@ int mbedtls_ecjpake_setup( mbedtls_ecjpake_context *ctx,
                            const unsigned char *secret,
                            size_t len )
 {
-    int ret;
+    int ret = 0;
 
     ctx->role = role;
 

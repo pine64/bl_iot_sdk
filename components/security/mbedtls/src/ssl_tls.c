@@ -488,8 +488,8 @@ int mbedtls_ssl_derive_keys( mbedtls_ssl_context *ssl )
     unsigned char keyblk[256];
     unsigned char *key1;
     unsigned char *key2;
-    unsigned char *mac_enc;
-    unsigned char *mac_dec;
+    unsigned char *mac_enc = NULL;
+    unsigned char *mac_dec = NULL;
     size_t iv_copy_len;
     const mbedtls_cipher_info_t *cipher_info;
     const mbedtls_md_info_t *md_info;
@@ -817,7 +817,9 @@ int mbedtls_ssl_derive_keys( mbedtls_ssl_context *ssl )
 #if defined(MBEDTLS_SSL_PROTO_SSL3)
     if( ssl->minor_ver == MBEDTLS_SSL_MINOR_VERSION_0 )
     {
-        if( transform->maclen > sizeof transform->mac_enc )
+        if( transform->maclen > sizeof transform->mac_enc ||
+            mac_enc == NULL                               ||
+            mac_dec == NULL )
         {
             MBEDTLS_SSL_DEBUG_MSG( 1, ( "should never happen" ) );
             return( MBEDTLS_ERR_SSL_INTERNAL_ERROR );

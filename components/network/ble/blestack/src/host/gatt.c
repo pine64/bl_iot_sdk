@@ -1964,7 +1964,7 @@ int bt_gatt_indicate(struct bt_conn *conn,
 {
 	struct notify_data data;
 	const struct bt_gatt_attr *attr;
-	u16_t handle;
+	u16_t handle = 0;
 
 	__ASSERT(params, "invalid parameters\n");
 	__ASSERT(params->attr, "invalid parameters\n");

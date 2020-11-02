@@ -145,9 +145,9 @@ int bl_hbn_enter(hbn_type_t *hbn, uint32_t *time)
         .sleepTime =0,                                         /*!< HBN sleep time */
         .gpioWakeupSrc=HBN_WAKEUP_GPIO_NONE,                   /*!< GPIO Wakeup source */
         .gpioTrigType=HBN_GPIO_INT_TRIGGER_ASYNC_FALLING_EDGE, /*!< GPIO Triger type */
-        .flashCfg= NULL,                                      /*!< Flash config pointer, used when power down flash */
-        .hbnLevel=HBN_LEVEL_0,                                /*!< HBN level */
-        .ldoLevel=HBN_LDO_LEVEL_1P10V,                        /*!< LDO level */
+        .flashCfg= NULL,                                       /*!< Flash config pointer, used when power down flash */
+        .hbnLevel=HBN_LEVEL_0,                                 /*!< HBN level */
+        .ldoLevel=HBN_LDO_LEVEL_1P10V,                         /*!< LDO level */
     };
 
     if (hbn) {
@@ -156,7 +156,7 @@ int bl_hbn_enter(hbn_type_t *hbn, uint32_t *time)
         log_buf(hbn->buf, hbn->buflen);
     }
 
-    cfg.sleepTime = (*time + 999) / 1000; 
+    cfg.sleepTime = (*time + 999) / 1000;
     if ((!hbn->buf) || ((hbn->buflen != 1) && (hbn->buflen != 2))) {
         printf("not support arg.\r\n");
         return -1;

@@ -7,13 +7,23 @@ This repository contains the Pine64 fork of Bouffalo Lab's SDK for their BL602
 Wi-Fi/BLE Combo RISC-V SoC. Documentation, including upstream documentation,
 translations, mirrored technical documentation, and original reverse engineered
 documentation is at `bl602-docs <https://github.com/pine64/bl602-docs>`_, which
-is cloned as a submodule of this repository at ``docs``. Use `git submodule update --init` to initialize the submodule. 
+is cloned as a submodule of this repository at ``docs``. Use
+`git submodule update --init` to initialize the submodule.
 
 This repository is the central focus of Pine64's
 `Nutcracker Challenge <https://www.pine64.org/2020/10/28/nutcracker-challenge-blob-free-wifi-ble/>`_.
 
 Quick Start
 -----------
+Firstly, you should clone the repository and update the submodules (for
+documentation and building)::
+
+    git clone git@github.com:pine64/bl_iot_sdk.git
+    git submodule update --init
+
+Note: If you don't have a GitHub account your cloning process will be
+different.
+
 In order to build one of the sample apps, you need to set a few environment
 variables::
 

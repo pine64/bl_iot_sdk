@@ -18,11 +18,8 @@ Quick Start
 Firstly, you should clone the repository and update the submodules (for
 documentation and building)::
 
-    git clone git@github.com:pine64/bl_iot_sdk.git
-    git submodule update --init
-
-Note: If you don't have a GitHub account your cloning process will be
-different.
+    git clone https://github.com/pine64/bl_iot_sdk
+    git submodule update --init --recursive
 
 In order to build one of the sample apps, you need to set a few environment
 variables::

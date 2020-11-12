@@ -13,6 +13,10 @@ is cloned as a submodule of this repository at ``docs``. Use
 This repository is the central focus of Pine64's
 `Nutcracker Challenge <https://www.pine64.org/2020/10/28/nutcracker-challenge-blob-free-wifi-ble/>`_.
 
+Documentation
+------------
+You can find a lot of documentation on `PINE64 Documentation Website <https://pine64.github.io/bl602-docs/>`_ and `PINE64 Documentation Repository <https://github.com/pine64/bl602-docs>`_, where you can find Datasheets, Reference Manuals and various other documentation materials.
+
 Quick Start
 -----------
 Firstly, you should clone the repository and update the submodules (for
@@ -21,18 +25,22 @@ documentation and building)::
     git clone https://github.com/pine64/bl_iot_sdk
     git submodule update --init --recursive
 
-In order to build one of the sample apps, you need to set a few environment
-variables::
+In order to build sample apps, you need to set a few environment variables::
 
     export BL60X_SDK_PATH=/path/to/this/repo
     export CONFIG_CHIP_NAME=BL602
 
-Then go to the sample directory of interest and call `make`, for example::
+In order to build all sample apps simply call `make`, for example ::
+    make
+
+To only build the sample app of interest, go to the directory of the app,
+then call `make`, for example::
 
     cd customer_app/bl602_boot2
     make
 
 Call ::
+=======
 
     make CONFIG_TOOLPREFIX=riscv64-linux-gnu-
 

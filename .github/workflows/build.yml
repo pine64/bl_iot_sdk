@@ -1,0 +1,16 @@
+name: build
+
+on: ["push", "pull_request"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+	make -C customer_app/sdk_app_gpio
+
+

@@ -10,7 +10,13 @@ documentation is at `bl602-docs <https://github.com/pine64/bl602-docs>`_, which
 is cloned as a submodule of this repository at ``docs``. Use `git submodule update --init` to initialize the submodule. 
 
 This repository is the central focus of Pine64's
-`Nutcracker Challenge <https://www.pine64.org/2020/10/28/nutcracker-challenge-blob-free-wifi-ble/>`_.
+`Nutcracker Challenge <https://www.pine64.org/2020/10/28/nutcracker-challenge-blob-free-wifi-ble/>`_. The main task is to reverse engineer the following files:
+
+- `components/bl602/bl602_wifi/lib/libbl602_wifi.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/bl602/bl602_wifi/lib/libbl602_wifi.a>`_
+- `components/network/ble/blecontroller/lib/libblecontroller.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/network/ble/blecontroller/lib/libblecontroller.a>`_
+- `components/stage/atcmd/lib/libatcmd.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/stage/atcmd/lib/libatcmd.a>`_
+
+This is being done at `bl602-re <https://github.com/pine64/bl602-re>`_.
 
 Documentation
 ------------

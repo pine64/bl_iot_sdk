@@ -188,8 +188,8 @@ all:
 ifeq ("$(OS)","Windows_NT")
 else
 ifeq ("$(CONFIG_CHIP_NAME)", "BL602")
-	#@cd $(BL60X_SDK_PATH)/image_conf; python3 flash_build.py $(PROJECT_NAME) $(CONFIG_CHIP_NAME)
-	@cd $(BL60X_SDK_PATH)/image_conf; ./flash_build $(PROJECT_NAME) $(CONFIG_CHIP_NAME)
+	@cd $(BL60X_SDK_PATH)/image_conf;python3 -m pip install -r requirements.txt; python3 flash_build.py $(PROJECT_NAME) $(CONFIG_CHIP_NAME)
+#@cd $(BL60X_SDK_PATH)/image_conf; ./flash_build $(PROJECT_NAME) $(CONFIG_CHIP_NAME)
 endif
 endif
 	@echo "Building Finish. To flash build output."
@@ -209,7 +209,7 @@ ifeq ("$(CONFIG_CHIP_NAME)", "BL602")
 BL_SDK_PHY_VER := `cat ${BL60X_SDK_PATH}/version.txt |head -n2|tail -n1`
 BL_SDK_RF_VER := `cat ${BL60X_SDK_PATH}/version.txt |head -n3|tail -n1`
 endif
-$(info use exsting version.txt file)
+$(info use existing version.txt file)
 endif
 BL_CHIP_NAME := ${CONFIG_CHIP_NAME}
 
@@ -292,7 +292,6 @@ COMMON_FLAGS_M4_EXT := 	\
 	-ffreestanding \
 	-fno-strict-aliasing
 
-		
 COMMON_FLAGS += $(COMMON_FLAGS_M4_EXT)
 
 ifdef CONFIG_STACK_CHECK_NORM
@@ -455,7 +454,6 @@ else
 endif
 endif
 endif
-	
 
 $(BUILD_DIR_BASE):
 	mkdir -p $(BUILD_DIR_BASE)

@@ -7,14 +7,14 @@ This repository contains the Pine64 fork of Bouffalo Lab's SDK for their BL602
 Wi-Fi/BLE Combo RISC-V SoC. Documentation, including upstream documentation,
 translations, mirrored technical documentation, and original reverse engineered
 documentation is at `bl602-docs <https://github.com/pine64/bl602-docs>`_, which
-is cloned as a submodule of this repository at ``docs``. Use `git submodule update --init` to initialize the submodule. 
+is cloned as a submodule of this repository at ``docs``. Use ``git submodule update --init`` to initialize the submodule. 
 
 This repository is the central focus of Pine64's
 `Nutcracker Challenge <https://www.pine64.org/2020/10/28/nutcracker-challenge-blob-free-wifi-ble/>`_. The main task is to reverse engineer the following files:
 
-- `components/bl602/bl602_wifi/lib/libbl602_wifi.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/bl602/bl602_wifi/lib/libbl602_wifi.a>`_
-- `components/network/ble/blecontroller/lib/libblecontroller.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/network/ble/blecontroller/lib/libblecontroller.a>`_
-- `components/stage/atcmd/lib/libatcmd.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/stage/atcmd/lib/libatcmd.a>`_
+    - `components/bl602/bl602_wifi/lib/libbl602_wifi.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/bl602/bl602_wifi/lib/libbl602_wifi.a>`_
+    - `components/network/ble/blecontroller/lib/libblecontroller.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/network/ble/blecontroller/lib/libblecontroller.a>`_
+    - `components/stage/atcmd/lib/libatcmd.a <https://github.com/pine64/bl_iot_sdk/blob/master/components/stage/atcmd/lib/libatcmd.a>`_
 
 This is being done at `bl602-re <https://github.com/pine64/bl602-re>`_.
 
@@ -29,7 +29,8 @@ In order to build sample apps, you need to set a few environment variables::
     export BL60X_SDK_PATH=/path/to/this/repo
     export CONFIG_CHIP_NAME=BL602
 
-In order to build all sample apps simply call `make`, for example ::
+In order to build all sample apps simply call `make`, for example::
+
     make
 
 To only build the sample app of interest, go to the directory of the app,
@@ -38,8 +39,10 @@ then call `make`, for example::
     cd customer_app/bl602_boot2
     make
 
-Call ::
-=======
+Call
+====
+
+::
 
     make CONFIG_TOOLPREFIX=riscv64-linux-gnu-
 

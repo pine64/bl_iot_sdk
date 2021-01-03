@@ -55,7 +55,7 @@ static uint32_t user_clz(uint32_t priorities)
 
 struct romapi_freertos_map* hal_sys_romapi_get(void)
 {
-    extern uint8_t __global_pointer_head$;
+    extern uint8_t __global_pointer_head$[0x498];
     uint32_t *gp_data_start = (uint32_t*)(&__global_pointer_head$);
     struct romapi_freertos_map* romapi_freertos;
 

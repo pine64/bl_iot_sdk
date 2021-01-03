@@ -56,7 +56,7 @@ void i2c_set_freq(int freq, int i2cx)
 
 void i2c_gpio_init(int i2cx)
 {
-    uint8_t gpiopins[2];
+    GLB_GPIO_Type gpiopins[2];
     if (i2cx == I2C0) {
         gpiopins[0] = GLB_GPIO_PIN_4;
         gpiopins[1] = GLB_GPIO_PIN_3;

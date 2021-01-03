@@ -338,7 +338,7 @@ void fdt_button_module_init(const void *fdt, int button_offset)
 
     for (i = 0; i < GPIO_MODULE_MAX; i++) {
         memset(gpio_node, 0, sizeof(gpio_node));
-        sprintf(gpio_node, "gpio%d", i);
+        snprintf(gpio_node, sizeof(gpio_node), "gpio%d", i);
         offset1 = fdt_subnode_offset(fdt, button_offset, gpio_node);
         if (0 > offset1) {
             //log_warn("gpio[%d] %s NULL. \r\n", i, gpio_node);

@@ -486,7 +486,7 @@ int bl_adc_start(void)
 
 int bl_adc_gpio_init(int gpio_num)
 {
-    uint8_t adc_pin = gpio_num;
+    GLB_GPIO_Type adc_pin = gpio_num;
      
     GLB_GPIO_Func_Init(GPIO_FUN_ANALOG, &adc_pin, 1);
 

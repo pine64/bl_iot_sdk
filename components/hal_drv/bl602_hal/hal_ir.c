@@ -60,7 +60,7 @@ int hal_ir_init_from_dts(uint32_t fdt_input, uint32_t dtb_offset)
     int ctrltype = 0;
 
     uint8_t pin = 0;
-    uint16_t interval = NULL;
+    uint16_t interval = 0;
    
     addr_prop = fdt_getprop(fdt, dtb_offset, "ctrltype", &lentmp);
     if (addr_prop == NULL) {

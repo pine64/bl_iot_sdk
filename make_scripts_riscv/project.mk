@@ -192,7 +192,7 @@ ifeq ("$(OS)","Windows_NT")
 else
 ifeq ("$(CONFIG_CHIP_NAME)", "BL602")
 	@env -u CC -u CXX -u AR -u CFLAGS -u CPPFLAGS python3 -m pip install -r $(BL60X_SDK_PATH)/image_conf/requirements.txt
-	@cd $(BL60X_SDK_PATH)/image_conf && python3 flash_build.py $(PROJECT_NAME) $(CONFIG_CHIP_NAME)
+	@cd $(BL60X_SDK_PATH)/image_conf && python3 flash_build.py $(PROJECT_NAME) $(CONFIG_CHIP_NAME) $(PROJECT_PATH)
 endif
 endif
 	@echo "Building Finish. To flash build output."

@@ -33,7 +33,7 @@ dict_xtal = {"24M": 1, "32M": "2", "38.4M": "3", "40M": "4", "26M": "5", "RC32M"
 
 def bl_find_file_list(key_val, endswith):
     file_path_list = []
-    conf_path = os.path.join(app_path, "img_conf")
+    conf_path = os.path.join(search_path, "img_conf")
     if os.path.exists(conf_path):
         files = os.listdir(conf_path)
         for f in files:
@@ -54,7 +54,7 @@ def bl_find_file_list(key_val, endswith):
 
 
 def bl_find_file(key_val, endswith):
-    conf_path = os.path.join(app_path, "img_conf")
+    conf_path = os.path.join(search_path, "img_conf")
     if os.path.exists(conf_path):
         files = os.listdir(conf_path)
         for f in files:
@@ -1388,7 +1388,8 @@ class bl_flash_select():
 
 if __name__ == '__main__':
     abs_path = os.path.abspath('..')
-    app_path = os.path.join(abs_path, "customer_app", sys.argv[1])
+    search_path = os.path.join(abs_path, "customer_app", sys.argv[1])
+    app_path = sys.argv[3] # path to the build location
     demo_name = sys.argv[1]
     chip_name = sys.argv[2].lower()
     default_conf_path = chip_name

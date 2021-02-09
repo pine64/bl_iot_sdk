@@ -8077,107 +8077,161 @@
 				<registers>
 					<register>
 						<name>gpadc_config</name>
-						<description>gpadc_config.</description>
+						<description>GPADC configuration</description>
 						<addressOffset>0x0</addressOffset>
-						<fields>
-							<field>
-								<name>rsvd_31_24</name>
-								<lsb>24</lsb>
-								<msb>31</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_thl</name>
-								<lsb>22</lsb>
-								<msb>23</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_data_count</name>
-								<lsb>16</lsb>
-								<msb>21</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_underrun_mask</name>
-								<lsb>14</lsb>
-								<msb>14</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_overrun_mask</name>
-								<lsb>13</lsb>
-								<msb>13</msb>
-							</field>
-							<field>
-								<name>gpadc_rdy_mask</name>
-								<lsb>12</lsb>
-								<msb>12</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_underrun_clr</name>
-								<lsb>10</lsb>
-								<msb>10</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_overrun_clr</name>
-								<lsb>9</lsb>
-								<msb>9</msb>
-							</field>
-							<field>
-								<name>gpadc_rdy_clr</name>
-								<lsb>8</lsb>
-								<msb>8</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_underrun</name>
-								<lsb>6</lsb>
-								<msb>6</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_overrun</name>
-								<lsb>5</lsb>
-								<msb>5</msb>
-							</field>
-							<field>
-								<name>gpadc_rdy</name>
-								<lsb>4</lsb>
-								<msb>4</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_full</name>
-								<lsb>3</lsb>
-								<msb>3</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_ne</name>
-								<lsb>2</lsb>
-								<msb>2</msb>
-							</field>
-							<field>
-								<name>gpadc_fifo_clr</name>
-								<lsb>1</lsb>
-								<msb>1</msb>
-							</field>
-							<field>
-								<name>gpadc_dma_en</name>
-								<lsb>0</lsb>
-								<msb>0</msb>
-							</field>
-						</fields>
+						<field>
+							<name>gpadc_fifo_thl</name>
+							<description>threshold</description>
+							<msb>23</msb>
+							<lsb>22</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>1 data</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>4 data</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>8 data</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>16 data</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_fifo_data_count</name>
+							<description>data number</description>
+							<msb>21</msb>
+							<lsb>16</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>FIFORDYM</name>
+							<description>1 mask</description>
+							<msb>15</msb>
+							<lsb>15</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_underrun_mask</name>
+							<description>1 mask</description>
+							<msb>14</msb>
+							<lsb>14</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_overrun_mask</name>
+							<description>1 mask</description>
+							<msb>13</msb>
+							<lsb>13</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_rdy_mask</name>
+							<description>1 mask</description>
+							<msb>12</msb>
+							<lsb>12</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_underrun_clr</name>
+							<description>1 to clear flag</description>
+							<msb>10</msb>
+							<lsb>10</lsb>
+							<access>writeOnce</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_overrun_clr</name>
+							<description>1 to clear flag</description>
+							<msb>9</msb>
+							<lsb>9</lsb>
+							<access>writeOnce</access>
+						</field>
+						<field>
+							<name>gpadc_rdy_clr</name>
+							<description>1 to clear flag</description>
+							<msb>8</msb>
+							<lsb>8</lsb>
+							<access>writeOnce</access>
+						</field>
+						<field>
+							<name>FIFORDY</name>
+							<description>ready interrupt flag</description>
+							<msb>7</msb>
+							<lsb>7</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_underrun</name>
+							<description>underrun interrupt flag</description>
+							<msb>6</msb>
+							<lsb>6</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_overrun</name>
+							<description>overrun interrupt flag</description>
+							<msb>5</msb>
+							<lsb>5</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>gpadc_rdy</name>
+							<description>data ready interrupt flag</description>
+							<msb>4</msb>
+							<lsb>4</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_full</name>
+							<description>full flag</description>
+							<msb>3</msb>
+							<lsb>3</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_ne</name>
+							<description>not empty flag</description>
+							<msb>2</msb>
+							<lsb>2</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>gpadc_fifo_clr</name>
+							<description>clear signal</description>
+							<msb>1</msb>
+							<lsb>1</lsb>
+							<access>writeOnce</access>
+						</field>
+						<field>
+							<name>gpadc_dma_en</name>
+							<description>DMA enbale</description>
+							<msb>0</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>32768</resetValue>
+						<resetMask>10549247</resetMask>
 					</register>
 					<register>
 						<name>gpadc_dma_rdata</name>
-						<description>gpadc_dma_rdata.</description>
+						<description>GPADC DMA read data</description>
 						<addressOffset>0x4</addressOffset>
-						<fields>
-							<field>
-								<name>rsvd_31_26</name>
-								<lsb>26</lsb>
-								<msb>31</msb>
-							</field>
-							<field>
-								<name>gpadc_dma_rdata</name>
-								<lsb>0</lsb>
-								<msb>25</msb>
-							</field>
-						</fields>
+						<field>
+							<name>gpadc_dma_rdata</name>
+							<description>finial conversion result stored in the FIFO</description>
+							<msb>25</msb>
+							<lsb>0</lsb>
+							<access>read-only</access>
+						</field>
+						<resetValue>0</resetValue>
+						<resetMask>33554432</resetMask>
 					</register>
 					<register>
 						<name>gpdac_config</name>
@@ -15289,7 +15343,7 @@
 								<msb>24</msb>
 							</field>
 							<field>
-								<name>sf_if_0_dat_rw  </name>
+								<name>sf_if_0_dat_rw</name>
 								<lsb>23</lsb>
 								<msb>23</msb>
 							</field>
@@ -15385,7 +15439,7 @@
 								<msb>24</msb>
 							</field>
 							<field>
-								<name>sf_if_1_dat_rw  </name>
+								<name>sf_if_1_dat_rw	</name>
 								<lsb>23</lsb>
 								<msb>23</msb>
 							</field>
@@ -15975,7 +16029,7 @@
 								<msb>24</msb>
 							</field>
 							<field>
-								<name>sf_if_2_dat_rw  </name>
+								<name>sf_if_2_dat_rw	</name>
 								<lsb>23</lsb>
 								<msb>23</msb>
 							</field>
@@ -19414,482 +19468,1152 @@
 					</register>
 					<register>
 						<name>gpadc_reg_cmd</name>
-						<description>gpadc_reg_cmd.</description>
-						<addressOffset>0x90C</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_sen_test_en</name>
-								<lsb>30</lsb>
-								<msb>30</msb>
-							</field>
-							<field>
-								<name>gpadc_sen_sel</name>
-								<lsb>28</lsb>
-								<msb>29</msb>
-							</field>
-							<field>
-								<name>gpadc_chip_sen_pu</name>
-								<lsb>27</lsb>
-								<msb>27</msb>
-							</field>
-							<field>
-								<name>gpadc_micboost_32db_en</name>
-								<lsb>23</lsb>
-								<msb>23</msb>
-							</field>
-							<field>
-								<name>gpadc_mic_pga2_gain</name>
-								<lsb>21</lsb>
-								<msb>22</msb>
-							</field>
-							<field>
-								<name>gpadc_mic1_diff</name>
-								<lsb>20</lsb>
-								<msb>20</msb>
-							</field>
-							<field>
-								<name>gpadc_mic2_diff</name>
-								<lsb>19</lsb>
-								<msb>19</msb>
-							</field>
-							<field>
-								<name>gpadc_dwa_en</name>
-								<lsb>18</lsb>
-								<msb>18</msb>
-							</field>
-							<field>
-								<name>gpadc_byp_micboost</name>
-								<lsb>16</lsb>
-								<msb>16</msb>
-							</field>
-							<field>
-								<name>gpadc_micpga_en</name>
-								<lsb>15</lsb>
-								<msb>15</msb>
-							</field>
-							<field>
-								<name>gpadc_micbias_en</name>
-								<lsb>14</lsb>
-								<msb>14</msb>
-							</field>
-							<field>
-								<name>gpadc_neg_gnd</name>
-								<lsb>13</lsb>
-								<msb>13</msb>
-							</field>
-							<field>
-								<name>gpadc_pos_sel</name>
-								<lsb>8</lsb>
-								<msb>12</msb>
-							</field>
-							<field>
-								<name>gpadc_neg_sel</name>
-								<lsb>3</lsb>
-								<msb>7</msb>
-							</field>
-							<field>
-								<name>gpadc_soft_rst</name>
-								<lsb>2</lsb>
-								<msb>2</msb>
-							</field>
-							<field>
-								<name>gpadc_conv_start</name>
-								<lsb>1</lsb>
-								<msb>1</msb>
-							</field>
-							<field>
-								<name>gpadc_global_en</name>
-								<lsb>0</lsb>
-								<msb>0</msb>
-							</field>
-						</fields>
+						<description>GPADC configuration register</description>
+						<addressOffset>0xD90C</addressOffset>
+						<field>
+							<name>gpadc_sen_test_en</name>
+							<description>sensor dc test mux</description>
+							<msb>30</msb>
+							<lsb>30</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_sen_sel</name>
+							<description>output current channel and measurement channel</description>
+							<msb>29</msb>
+							<lsb>28</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>1st channel</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>2nd channel</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>3rd channel</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>4th channel</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_chip_sen_pu</name>
+							<description>chip sensor test</description>
+							<msb>27</msb>
+							<lsb>27</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>disable</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>enable</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_micboost_32db_en</name>
+							<description>32db enable</description>
+							<msb>23</msb>
+							<lsb>23</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>16dB</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>32dB</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_mic_pga2_gain</name>
+							<description></description>
+							<msb>22</msb>
+							<lsb>21</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>0dB</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>6dB</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>-6dB</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>12dB</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_mic1_diff</name>
+							<description>diff enable</description>
+							<msb>20</msb>
+							<lsb>20</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>single</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>diff</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_mic2_diff</name>
+							<description>diff enable</description>
+							<msb>19</msb>
+							<lsb>19</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>single</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>diff</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_dwa_en</name>
+							<description>enable</description>
+							<msb>18</msb>
+							<lsb>18</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>dwa disable</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>dwa enable</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_byp_micboost</name>
+							<description>amp bypass</description>
+							<msb>16</msb>
+							<lsb>16</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>not bypass</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>bypass</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_micpga_en</name>
+							<description>enable</description>
+							<msb>15</msb>
+							<lsb>15</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>micpga disable</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>miapga enable</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_micbias_en</name>
+							<description>micbias</description>
+							<msb>14</msb>
+							<lsb>14</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>micbias power down</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>miabias power on</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_neg_gnd</name>
+							<description>negative input of adc to ground</description>
+							<msb>13</msb>
+							<lsb>13</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>disable</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>enable</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_pos_sel</name>
+							<description>adc positive input in none-scan mode</description>
+							<msb>12</msb>
+							<lsb>8</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>gpip_ch[0]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>gpip_ch[1]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>gpip_ch[2]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>gpip_ch[3]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>4</value>
+									<description>gpip_ch[4]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>5</value>
+									<description>gpip_ch[5]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>6</value>
+									<description>gpip_ch[6]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>7</value>
+									<description>gpip_ch[7]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>8</value>
+									<description>gpip_ch[8]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>9</value>
+									<description>gpip_ch[9]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>10</value>
+									<description>gpip_ch[10]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>11</value>
+									<description>gpip_ch[11]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>12</value>
+									<description>daca</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>13</value>
+									<description>dacb</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>14</value>
+									<description>temp_p</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>16</value>
+									<description>vref</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>18</value>
+									<description>vbat/2</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>23</value>
+									<description>avss</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_neg_sel</name>
+							<description>adc negative input in none-scan mode</description>
+							<msb>7</msb>
+							<lsb>3</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>gpip_ch[0]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>gpip_ch[1]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>gpip_ch[2]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>gpip_ch[3]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>4</value>
+									<description>gpip_ch[4]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>5</value>
+									<description>gpip_ch[5]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>6</value>
+									<description>gpip_ch[6]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>7</value>
+									<description>gpip_ch[7]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>8</value>
+									<description>gpip_ch[8]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>9</value>
+									<description>gpip_ch[9]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>10</value>
+									<description>gpip_ch[10]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>11</value>
+									<description>gpip_ch[11]</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>12</value>
+									<description>daca</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>13</value>
+									<description>dacb</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>14</value>
+									<description>temp_p</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>16</value>
+									<description>vref</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>18</value>
+									<description>vbat/2</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>23</value>
+									<description>avss</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_soft_rst</name>
+							<description>reset the whole block 1'h0: not reset 1'h1: reset</description>
+							<msb>2</msb>
+							<lsb>2</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_conv_start</name>
+							<description>stop converation 1'h1: start converation</description>
+							<msb>1</msb>
+							<lsb>1</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_global_en</name>
+							<description>disable ADC 1'h1: enable ADC</description>
+							<msb>0</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>3960</resetValue>
+						<resetMask>1792929927</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_config1</name>
-						<description>gpadc_reg_config1.</description>
-						<addressOffset>0x910</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_v18_sel</name>
-								<lsb>29</lsb>
-								<msb>30</msb>
-							</field>
-							<field>
-								<name>gpadc_v11_sel</name>
-								<lsb>27</lsb>
-								<msb>28</msb>
-							</field>
-							<field>
-								<name>gpadc_dither_en</name>
-								<lsb>26</lsb>
-								<msb>26</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_en</name>
-								<lsb>25</lsb>
-								<msb>25</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_length</name>
-								<lsb>21</lsb>
-								<msb>24</msb>
-							</field>
-							<field>
-								<name>gpadc_clk_div_ratio</name>
-								<lsb>18</lsb>
-								<msb>20</msb>
-							</field>
-							<field>
-								<name>gpadc_clk_ana_inv</name>
-								<lsb>17</lsb>
-								<msb>17</msb>
-							</field>
-							<field>
-								<name>gpadc_res_sel</name>
-								<lsb>2</lsb>
-								<msb>4</msb>
-							</field>
-							<field>
-								<name>gpadc_cont_conv_en</name>
-								<lsb>1</lsb>
-								<msb>1</msb>
-							</field>
-							<field>
-								<name>gpadc_cal_os_en</name>
-								<lsb>0</lsb>
-								<msb>0</msb>
-							</field>
-						</fields>
+						<description>GPADC configuration register1</description>
+						<addressOffset>0xD910</addressOffset>
+						<field>
+							<name>gpadc_v18_sel</name>
+							<description>vdd18 select</description>
+							<msb>30</msb>
+							<lsb>29</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_v11_sel</name>
+							<description>vdd11 select</description>
+							<msb>28</msb>
+							<lsb>27</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_dither_en</name>
+							<description>compensation enable</description>
+							<msb>26</msb>
+							<lsb>26</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_en</name>
+							<description>scan mode enable: 0: select gpadc_pos/neg_sel;1: select : select gpadc_scan_pos_x and gpadc_scan_neg_x</description>
+							<msb>25</msb>
+							<lsb>25</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_length</name>
+							<description>scan mode length</description>
+							<msb>24</msb>
+							<lsb>21</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>select gpadc_scan_pos_0 and gpadc_scan_neg_0</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>select gpadc_scan_pos_1 and gpadc_scan_neg_1</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>select gpadc_scan_pos_2 and gpadc_scan_neg_2</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>select gpadc_scan_pos_3 and gpadc_scan_neg_3</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>4</value>
+									<description>select gpadc_scan_pos_4 and gpadc_scan_neg_4</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>5</value>
+									<description>select gpadc_scan_pos_5 and gpadc_scan_neg_5</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>6</value>
+									<description>select gpadc_scan_pos_6 and gpadc_scan_neg_6</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>7</value>
+									<description>select gpadc_scan_pos_7 and gpadc_scan_neg_7</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>8</value>
+									<description>select gpadc_scan_pos_8 and gpadc_scan_neg_8</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>9</value>
+									<description>select gpadc_scan_pos_9 and gpadc_scan_neg_9</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>10</value>
+									<description>select gpadc_scan_pos_10 and gpadc_scan_neg_10</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>11</value>
+									<description>select gpadc_scan_pos_11 and gpadc_scan_neg_11</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_clk_div_ratio</name>
+							<description>32M clock division ratio</description>
+							<msb>20</msb>
+							<lsb>18</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>div=1</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>div=4</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>div=8</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>div=12</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>4</value>
+									<description>div=16</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>5</value>
+									<description>div=20</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>6</value>
+									<description>div=24</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>7</value>
+									<description>div=32</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_clk_ana_inv</name>
+							<description>clock 2M inverted</description>
+							<msb>17</msb>
+							<lsb>17</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>LDEN</name>
+							<description></description>
+							<msb>10</msb>
+							<lsb>10</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>HYSTSEL</name>
+							<description></description>
+							<msb>9</msb>
+							<lsb>9</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>SELEN</name>
+							<description></description>
+							<msb>8</msb>
+							<lsb>8</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_res_sel</name>
+							<description>resolution/over-sample rate select</description>
+							<msb>4</msb>
+							<lsb>2</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>12bit 2MS/s, OSR=1</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>14bit 125kS/s, OSR=16</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>14bit 31.25kS/s, OSR=64</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>16bit 15.625KS/s, OSR=128 (voice mode16KS/s)</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>4</value>
+									<description>16bit 7.8125KS/s, OSR=256 (voice mode 8KS/s)</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_cont_conv_en</name>
+							<description>enable continuous conversion</description>
+							<msb>1</msb>
+							<lsb>1</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>one shot conversion 1'h1: continuous conversion</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_cal_os_en</name>
+							<description>calibration enable</description>
+							<msb>0</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>786434</resetValue>
+						<resetMask>1460799379</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_config2</name>
-						<description>gpadc_reg_config2.</description>
-						<addressOffset>0x914</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_tsvbe_low</name>
-								<lsb>31</lsb>
-								<msb>31</msb>
-							</field>
-							<field>
-								<name>gpadc_dly_sel</name>
-								<lsb>28</lsb>
-								<msb>30</msb>
-							</field>
-							<field>
-								<name>gpadc_pga1_gain</name>
-								<lsb>25</lsb>
-								<msb>27</msb>
-							</field>
-							<field>
-								<name>gpadc_pga2_gain</name>
-								<lsb>22</lsb>
-								<msb>24</msb>
-							</field>
-							<field>
-								<name>gpadc_test_sel</name>
-								<lsb>19</lsb>
-								<msb>21</msb>
-							</field>
-							<field>
-								<name>gpadc_test_en</name>
-								<lsb>18</lsb>
-								<msb>18</msb>
-							</field>
-							<field>
-								<name>gpadc_bias_sel</name>
-								<lsb>17</lsb>
-								<msb>17</msb>
-							</field>
-							<field>
-								<name>gpadc_chop_mode</name>
-								<lsb>15</lsb>
-								<msb>16</msb>
-							</field>
-							<field>
-								<name>gpadc_pga_vcmi_en</name>
-								<lsb>14</lsb>
-								<msb>14</msb>
-							</field>
-							<field>
-								<name>gpadc_pga_en</name>
-								<lsb>13</lsb>
-								<msb>13</msb>
-							</field>
-							<field>
-								<name>gpadc_pga_os_cal</name>
-								<lsb>9</lsb>
-								<msb>12</msb>
-							</field>
-							<field>
-								<name>gpadc_pga_vcm</name>
-								<lsb>7</lsb>
-								<msb>8</msb>
-							</field>
-							<field>
-								<name>gpadc_ts_en</name>
-								<lsb>6</lsb>
-								<msb>6</msb>
-							</field>
-							<field>
-								<name>gpadc_tsext_sel</name>
-								<lsb>5</lsb>
-								<msb>5</msb>
-							</field>
-							<field>
-								<name>gpadc_vbat_en</name>
-								<lsb>4</lsb>
-								<msb>4</msb>
-							</field>
-							<field>
-								<name>gpadc_vref_sel</name>
-								<lsb>3</lsb>
-								<msb>3</msb>
-							</field>
-							<field>
-								<name>gpadc_diff_mode</name>
-								<lsb>2</lsb>
-								<msb>2</msb>
-							</field>
-						</fields>
+						<description>GPADC configuration register2</description>
+						<addressOffset>0xD914</addressOffset>
+						<field>
+							<name>gpadc_tsvbe_low</name>
+							<description>diode current</description>
+							<msb>31</msb>
+							<lsb>31</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_dly_sel</name>
+							<description>conversion speed</description>
+							<msb>30</msb>
+							<lsb>28</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_pga1_gain</name>
+							<description>disable</description>
+							<msb>27</msb>
+							<lsb>25</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>1</value>
+									<description>gain=1</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>gain=2</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>gain=4</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>4</value>
+									<description>gain=8</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>5</value>
+									<description>gain=16</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>6</value>
+									<description>gain=32</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>7</value>
+									<description>gain=32</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_pga2_gain</name>
+							<description>disable</description>
+							<msb>24</msb>
+							<lsb>22</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>1</value>
+									<description>gain=1</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>gain=2</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>gain=4</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>4</value>
+									<description>gain=8</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>5</value>
+									<description>gain=16</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>6</value>
+									<description>gain=32</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>7</value>
+									<description>gain=32</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_test_sel</name>
+							<description>test point 0~7</description>
+							<msb>21</msb>
+							<lsb>19</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_test_en</name>
+							<description>test enable.</description>
+							<msb>18</msb>
+							<lsb>18</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_bias_sel</name>
+							<description>analog portion low power mode select</description>
+							<msb>17</msb>
+							<lsb>17</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>Full biasing current</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>Half biasing current</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_chop_mode</name>
+							<description>all off</description>
+							<msb>16</msb>
+							<lsb>15</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>1</value>
+									<description>Vref AZ on</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>Vref AZ and PGA chop on</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>Vref AZ and PGA chop+RPC on</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_pga_vcmi_en</name>
+							<description>pga input vcm bias</description>
+							<msb>14</msb>
+							<lsb>14</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_pga_en</name>
+							<description>disable PGA 1'h1 enable PGA</description>
+							<msb>13</msb>
+							<lsb>13</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_pga_os_cal</name>
+							<description>offset calibration</description>
+							<msb>12</msb>
+							<lsb>9</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_pga_vcm</name>
+							<description>PGA output common mode control</description>
+							<msb>8</msb>
+							<lsb>7</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>cm=1V</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>cm=1.2V</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>2</value>
+									<description>cm=1.4V</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>3</value>
+									<description>cm=1.6V</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_ts_en</name>
+							<description>disable temperature sensor 1'h1: enable temperature sensor</description>
+							<msb>6</msb>
+							<lsb>6</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_tsext_sel</name>
+							<description>internal diode mode 1'h1: external diode mode</description>
+							<msb>5</msb>
+							<lsb>5</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_vbat_en</name>
+							<description>disable VBAT sensor 1'h1 enable VBAT sensor</description>
+							<msb>4</msb>
+							<lsb>4</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_vref_sel</name>
+							<description>reference select</description>
+							<msb>3</msb>
+							<lsb>3</lsb>
+							<access>read-write</access>
+							<enumeratedValues>
+								<enumeratedValue>
+									<value>0</value>
+									<description>3.3V</description>
+								</enumeratedValue>
+								<enumeratedValue>
+									<value>1</value>
+									<description>1.8V</description>
+								</enumeratedValue>
+							</enumeratedValues>
+						</field>
+						<field>
+							<name>gpadc_diff_mode</name>
+							<description>single-ended 1'h1 differential</description>
+							<msb>2</msb>
+							<lsb>2</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>102656</resetValue>
+						<resetMask>3383226748</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_scn_pos1</name>
-						<description>adc converation sequence 1</description>
-						<addressOffset>0x918</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_scan_pos_5</name>
-								<lsb>25</lsb>
-								<msb>29</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_4</name>
-								<lsb>20</lsb>
-								<msb>24</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_3</name>
-								<lsb>15</lsb>
-								<msb>19</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_2</name>
-								<lsb>10</lsb>
-								<msb>14</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_1</name>
-								<lsb>5</lsb>
-								<msb>9</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_0</name>
-								<lsb>0</lsb>
-								<msb>4</msb>
-							</field>
-						</fields>
+						<description>GPADC converation sequence 1</description>
+						<addressOffset>0xD918</addressOffset>
+						<field>
+							<name>gpadc_scan_pos_5</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>29</msb>
+							<lsb>25</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_4</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>24</msb>
+							<lsb>20</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_3</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>19</msb>
+							<lsb>15</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_2</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>14</msb>
+							<lsb>10</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_1</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>9</msb>
+							<lsb>5</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_0</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>4</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>519552495</resetValue>
+						<resetMask>1762282128</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_scn_pos2</name>
-						<description>adc converation sequence 2</description>
-						<addressOffset>0x91C</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_scan_pos_11</name>
-								<lsb>25</lsb>
-								<msb>29</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_10</name>
-								<lsb>20</lsb>
-								<msb>24</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_9</name>
-								<lsb>15</lsb>
-								<msb>19</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_8</name>
-								<lsb>10</lsb>
-								<msb>14</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_7</name>
-								<lsb>5</lsb>
-								<msb>9</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_pos_6</name>
-								<lsb>0</lsb>
-								<msb>4</msb>
-							</field>
-						</fields>
+						<description>GPADC converation sequence 2</description>
+						<addressOffset>0xD91C</addressOffset>
+						<field>
+							<name>gpadc_scan_pos_11</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>29</msb>
+							<lsb>25</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_10</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>24</msb>
+							<lsb>20</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_9</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>19</msb>
+							<lsb>15</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_8</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>14</msb>
+							<lsb>10</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_7</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>9</msb>
+							<lsb>5</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_pos_6</name>
+							<description>is the same as adc_reg_cmd.adc_pos_sel</description>
+							<msb>4</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>519552495</resetValue>
+						<resetMask>1762282128</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_scn_neg1</name>
-						<description>adc converation sequence 3</description>
-						<addressOffset>0x920</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_scan_neg_5</name>
-								<lsb>25</lsb>
-								<msb>29</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_4</name>
-								<lsb>20</lsb>
-								<msb>24</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_3</name>
-								<lsb>15</lsb>
-								<msb>19</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_2</name>
-								<lsb>10</lsb>
-								<msb>14</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_1</name>
-								<lsb>5</lsb>
-								<msb>9</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_0</name>
-								<lsb>0</lsb>
-								<msb>4</msb>
-							</field>
-						</fields>
+						<description>GPADC converation sequence 3</description>
+						<addressOffset>0xD920</addressOffset>
+						<field>
+							<name>gpadc_scan_neg_5</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>29</msb>
+							<lsb>25</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_4</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>24</msb>
+							<lsb>20</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_3</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>19</msb>
+							<lsb>15</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_2</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>14</msb>
+							<lsb>10</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_1</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>9</msb>
+							<lsb>5</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_0</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>4</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>519552495</resetValue>
+						<resetMask>1762282128</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_scn_neg2</name>
-						<description>adc converation sequence 4</description>
-						<addressOffset>0x924</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_scan_neg_11</name>
-								<lsb>25</lsb>
-								<msb>29</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_10</name>
-								<lsb>20</lsb>
-								<msb>24</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_9</name>
-								<lsb>15</lsb>
-								<msb>19</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_8</name>
-								<lsb>10</lsb>
-								<msb>14</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_7</name>
-								<lsb>5</lsb>
-								<msb>9</msb>
-							</field>
-							<field>
-								<name>gpadc_scan_neg_6</name>
-								<lsb>0</lsb>
-								<msb>4</msb>
-							</field>
-						</fields>
+						<description>GPADC converation sequence 4</description>
+						<addressOffset>0xD924</addressOffset>
+						<field>
+							<name>gpadc_scan_neg_11</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>29</msb>
+							<lsb>25</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_10</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>24</msb>
+							<lsb>20</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_9</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>19</msb>
+							<lsb>15</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_8</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>14</msb>
+							<lsb>10</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_7</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>9</msb>
+							<lsb>5</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_scan_neg_6</name>
+							<description>is the same as adc_reg_cmd.adc_neg_sel</description>
+							<msb>4</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>519552495</resetValue>
+						<resetMask>1762282128</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_status</name>
-						<description>gpadc_reg_status.</description>
-						<addressOffset>0x928</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_reserved</name>
-								<lsb>16</lsb>
-								<msb>31</msb>
-							</field>
-							<field>
-								<name>gpadc_data_rdy</name>
-								<lsb>0</lsb>
-								<msb>0</msb>
-							</field>
-						</fields>
+						<description>GPADC status register</description>
+						<addressOffset>0xD928</addressOffset>
+						<field>
+							<name>gpadc_data_rdy</name>
+							<description>final conversion data ready</description>
+							<msb>0</msb>
+							<lsb>0</lsb>
+							<access>read-only</access>
+						</field>
+						<resetValue>0</resetValue>
+						<resetMask>1</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_isr</name>
-						<description>gpadc_reg_isr.</description>
-						<addressOffset>0x92C</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_pos_satur_mask</name>
-								<lsb>9</lsb>
-								<msb>9</msb>
-							</field>
-							<field>
-								<name>gpadc_neg_satur_mask</name>
-								<lsb>8</lsb>
-								<msb>8</msb>
-							</field>
-							<field>
-								<name>gpadc_pos_satur_clr</name>
-								<lsb>5</lsb>
-								<msb>5</msb>
-							</field>
-							<field>
-								<name>gpadc_neg_satur_clr</name>
-								<lsb>4</lsb>
-								<msb>4</msb>
-							</field>
-							<field>
-								<name>gpadc_pos_satur</name>
-								<lsb>1</lsb>
-								<msb>1</msb>
-							</field>
-							<field>
-								<name>gpadc_neg_satur</name>
-								<lsb>0</lsb>
-								<msb>0</msb>
-							</field>
-						</fields>
+						<description>GPADC status flag register</description>
+						<addressOffset>0xD92C</addressOffset>
+						<field>
+							<name>gpadc_pos_satur_mask</name>
+							<description>1 mask</description>
+							<msb>9</msb>
+							<lsb>9</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_neg_satur_mask</name>
+							<description>1 mask</description>
+							<msb>8</msb>
+							<lsb>8</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_pos_satur_clr</name>
+							<description>1 to clear flag</description>
+							<msb>5</msb>
+							<lsb>5</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_neg_satur_clr</name>
+							<description>1 to clear flag</description>
+							<msb>4</msb>
+							<lsb>4</lsb>
+							<access>read-write</access>
+						</field>
+						<field>
+							<name>gpadc_pos_satur</name>
+							<description>data positive side saturation interrupt flag</description>
+							<msb>1</msb>
+							<lsb>1</lsb>
+							<access>read-only</access>
+						</field>
+						<field>
+							<name>gpadc_neg_satur</name>
+							<description>data negative side saturation interrupt flag</description>
+							<msb>0</msb>
+							<lsb>0</lsb>
+							<access>read-only</access>
+						</field>
+						<resetValue>0</resetValue>
+						<resetMask>819</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_result</name>
-						<description>gpadc_reg_result.</description>
-						<addressOffset>0x930</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_data_out</name>
-								<lsb>0</lsb>
-								<msb>25</msb>
-							</field>
-						</fields>
+						<description>GPADC result register</description>
+						<addressOffset>0xD930</addressOffset>
+						<field>
+							<name>gpadc_data_out</name>
+							<description>finial conversion result data, after calibration and signed/unsigned process</description>
+							<msb>25</msb>
+							<lsb>0</lsb>
+							<access>read-only</access>
+						</field>
+						<resetValue>32440320</resetValue>
+						<resetMask>33554432</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_raw_result</name>
-						<description>gpadc_reg_raw_result.</description>
-						<addressOffset>0x934</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_raw_data</name>
-								<lsb>0</lsb>
-								<msb>11</msb>
-							</field>
-						</fields>
+						<description>GPADC raw result register</description>
+						<addressOffset>0xD934</addressOffset>
+						<field>
+							<name>gpadc_raw_data</name>
+							<description>Raw data</description>
+							<msb>11</msb>
+							<lsb>0</lsb>
+							<access>read-only</access>
+						</field>
+						<resetValue>0</resetValue>
+						<resetMask>1075841024</resetMask>
 					</register>
 					<register>
 						<name>gpadc_reg_define</name>
-						<description>gpadc_reg_define.</description>
-						<addressOffset>0x938</addressOffset>
-						<fields>
-							<field>
-								<name>gpadc_os_cal_data</name>
-								<lsb>0</lsb>
-								<msb>15</msb>
-							</field>
-						</fields>
+						<description>GPADC define register</description>
+						<addressOffset>0xD938</addressOffset>
+						<field>
+							<name>gpadc_os_cal_data</name>
+							<description>defined or self calculated offset data 16-bit signed</description>
+							<msb>15</msb>
+							<lsb>0</lsb>
+							<access>read-write</access>
+						</field>
+						<resetValue>0</resetValue>
+						<resetMask>536903680</resetMask>
 					</register>
 					<register>
 						<name>hbncore_resv0</name>

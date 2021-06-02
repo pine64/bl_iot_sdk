@@ -14,6 +14,7 @@
 
 MAKECMDGOALS ?= all
 all: all_binaries
+all_binaries: toolchain
 # see below for recipe of 'all' target
 #
 # # other components will add dependencies to 'all_binaries'. The

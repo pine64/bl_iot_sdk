@@ -64,7 +64,7 @@ static HeapRegion_t xHeapRegions[] =
 {
         { &_heap_start,  (unsigned int) &_heap_size}, //set on runtime
         { &_heap_wifi_start, (unsigned int) &_heap_wifi_size },
-        { NULL, 0 }, /* Terminates the array. */
+        { NULL, 0 },
         { NULL, 0 } /* Terminates the array. */
 };
 

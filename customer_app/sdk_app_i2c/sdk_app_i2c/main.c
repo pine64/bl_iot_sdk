@@ -168,7 +168,7 @@ static void aos_loop_proc(void *pvParameters)
     loopset_i2c_hook_on_looprt();
 
     /* uart */
-    if (0 == get_dts_addr("uart", &fdt, &offset)) {
+    if (get_dts_addr("uart", &fdt, &offset) == 0) {
         vfs_uart_init(fdt, offset);
     }
 

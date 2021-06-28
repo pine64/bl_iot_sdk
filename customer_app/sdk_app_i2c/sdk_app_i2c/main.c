@@ -189,7 +189,7 @@ static void aos_loop_proc(void *pvParameters)
 
     aos_loop_run();
 
-    puts("------------------------------------------\r\n");
+    puts("******************************************\r\n");
     puts("+++++++++Critical Exit From Loop++++++++++\r\n");
     puts("******************************************\r\n");
     vTaskDelete(NULL);

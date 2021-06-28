@@ -89,7 +89,6 @@ COMPONENT_SRCDIRS := bl602_std bl602_std/StdDriver/Src bl602_std/Common/soft_crc
                      bl602_std/RISCV/Device/Bouffalo/BL602/Startup \
                      bl602_std/RISCV/Device/Bouffalo/BL602/Startup/GCC
 
-##
 CPPFLAGS += -DARCH_RISCV -DBFLB_CRYPT_HARDWARE -DBFLB_PKA_HARDWARE -DSTDDRV_VERSION=096d971a96c12b5857abc7606bfd5ac1bf371a41
 ifndef CONFIG_USE_STD_DRIVER
 CPPFLAGS += -DBL602_USE_HAL_DRIVER

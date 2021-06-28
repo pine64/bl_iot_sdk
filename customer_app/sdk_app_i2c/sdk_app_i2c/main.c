@@ -64,7 +64,7 @@ static HeapRegion_t xHeapRegions[] =
 {
         { &_heap_start,  (unsigned int) &_heap_size}, //set on runtime
         { &_heap_wifi_start, (unsigned int) &_heap_wifi_size },
-        { NULL, 0 }, /* Terminates the array. */
+        { NULL, 0 },
         { NULL, 0 } /* Terminates the array. */
 };
 
@@ -168,7 +168,7 @@ static void aos_loop_proc(void *pvParameters)
     loopset_i2c_hook_on_looprt();
 
     /* uart */
-    if (0 == get_dts_addr("uart", &fdt, &offset)) {
+    if (get_dts_addr("uart", &fdt, &offset) == 0) {
         vfs_uart_init(fdt, offset);
     }
 
@@ -189,7 +189,7 @@ static void aos_loop_proc(void *pvParameters)
 
     aos_loop_run();
 
-    puts("------------------------------------------\r\n");
+    puts("******************************************\r\n");
     puts("+++++++++Critical Exit From Loop++++++++++\r\n");
     puts("******************************************\r\n");
     vTaskDelete(NULL);

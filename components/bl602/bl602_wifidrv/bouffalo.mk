@@ -40,7 +40,3 @@ CPPFLAGS += -DCFG_STA_MAX="10"
 else
 CPPFLAGS += -DCFG_STA_MAX="1"
 endif
-
-
-##
-#CPPFLAGS +=

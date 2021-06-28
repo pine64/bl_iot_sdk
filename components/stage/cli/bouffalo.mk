@@ -12,7 +12,3 @@ COMPONENT_SRCS := cli/cli.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := cli
-
-
-##
-#CPPFLAGS +=

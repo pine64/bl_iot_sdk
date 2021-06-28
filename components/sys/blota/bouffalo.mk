@@ -16,7 +16,3 @@ COMPONENT_SRCS := bl_sys_ota.c \
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := .
-
-
-##
-#CPPFLAGS +=

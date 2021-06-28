@@ -14,7 +14,3 @@ COMPONENT_SRCS := sntp.c \
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := .
-
-
-##
-#CPPFLAGS +=

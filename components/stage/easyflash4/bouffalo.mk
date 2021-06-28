@@ -11,6 +11,3 @@ COMPONENT_SRCS := src/easyflash.c src/ef_env.c \
                   src/easyflash_cli.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 COMPONENT_SRCDIRS := src
-
-##
-#CPPFLAGS +=

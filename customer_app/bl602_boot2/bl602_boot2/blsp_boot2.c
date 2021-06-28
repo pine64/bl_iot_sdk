@@ -86,7 +86,7 @@ Boot_CPU_Config     bootCpuCfg[2]=
 Boot_Efuse_HW_Config efuseCfg;
 SPI_Flash_Cfg_Type flashCfg;
 uint8_t psMode=BFLB_PSM_ACTIVE;
-uint8_t cpuCount;
+uint8_t cpuCount = 1;
 int32_t BLSP_Boot2_Get_Clk_Cfg(Boot_Clk_Config *cfg);
 void BLSP_Boot2_Get_Efuse_Cfg(Boot_Efuse_HW_Config *efuseCfg);
 
@@ -446,8 +446,6 @@ int main(void)
     if(BLSP_Boot2_Get_Feature_Flag()!=BLSP_BOOT2_SP_FLAG){
         /* Get cpu count info */
         cpuCount=BLSP_Boot2_Get_CPU_Count();
-    }else{
-        cpuCount=1;
     }
 
     /* Get power save mode */

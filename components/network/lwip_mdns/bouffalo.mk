@@ -11,7 +11,3 @@ COMPONENT_SRCS := mdns_server.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := .
-
-
-##
-#CPPFLAGS +=

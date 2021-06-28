@@ -11,7 +11,3 @@ COMPONENT_SRCS := dhcp_server_raw.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := .
-
-
-##
-#CPPFLAGS +=

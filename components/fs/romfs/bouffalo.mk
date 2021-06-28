@@ -11,6 +11,3 @@ COMPONENT_SRCS :=   src/bl_romfs.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := src
-
-##
-#CPPFLAGS +=

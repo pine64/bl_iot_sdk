@@ -12,7 +12,3 @@ COMPONENT_SRCS := src/altcp_tls_mbedtls.c \
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := src
-
-
-##
-#CPPFLAGS +=

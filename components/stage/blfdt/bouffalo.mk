@@ -16,7 +16,3 @@ test/blfdt_cli_test.c \
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := src test
-
-
-##
-#CPPFLAGS +=

@@ -17,7 +17,3 @@ COMPONENT_SRCS := tcpclient/tcpclient.c \
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := tcpclient iperf netstat ping tcpserver
-
-
-##
-#CPPFLAGS +=

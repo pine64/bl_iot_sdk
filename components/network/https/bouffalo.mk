@@ -13,7 +13,3 @@ COMPONENT_SRCS := src/bl_https.c \
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := src
-
-
-##
-#CPPFLAGS +=

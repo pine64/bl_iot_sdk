@@ -18,6 +18,3 @@ COMPONENT_SRCDIRS := bl60x_i2s
 endif
 
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
-
-##
-#CPPFLAGS +=

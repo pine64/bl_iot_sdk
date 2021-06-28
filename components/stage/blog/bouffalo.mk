@@ -12,6 +12,3 @@ COMPONENT_SRCS := ./blog.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := ./
-
-##
-#CPPFLAGS +=

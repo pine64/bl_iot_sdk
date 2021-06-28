@@ -12,7 +12,3 @@ COMPONENT_SRCS := audio_framework/audio_framework.c
 COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := audio_framework
-
-
-##
-#CPPFLAGS +=

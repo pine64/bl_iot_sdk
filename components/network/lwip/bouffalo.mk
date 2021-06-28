@@ -11,7 +11,3 @@ COMPONENT_PRIV_INCLUDEDIRS :=
 #COMPONENT_OBJS := $(patsubst %.c,%.o, $(COMPONENT_SRCS))
 
 COMPONENT_SRCDIRS := src/api src/core src/core/ipv4 src/netif lwip-port/FreeRTOS lwip-port src/apps/altcp_tls
-
-
-##
-#CPPFLAGS +=
